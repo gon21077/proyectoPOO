@@ -1,8 +1,20 @@
+/**
+ * Universidad del Valle de Guatemala
+ * Proyecto Final POO
+ * File: Main
+ * @author Diana Díaz 21066
+ * @author Sebastián Franco 21484
+ * @author Juan Miguel González-Campo 21077
+ * @author Mario Puente 21290
+ * @author Sebastián Reyes 21239
+ */
 import java.util.Scanner;
-
 
 public class main {
     public static preguntas pregunta = null;
+    /**
+     * @param args
+     */
     public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
 
@@ -17,7 +29,6 @@ public class main {
                 } else {
                     System.out.println("Incorrecto, sigue tratando!");
                     vidas = vidas-1;
-                    System.out.println("Te quedan " + vidas + " vidas");
                 }
             } if (pregunta.getTipo()== "Resta"){
                 boolean R = pregunta.Resta();
@@ -26,7 +37,6 @@ public class main {
                 } else {
                     System.out.println("Incorrecto, sigue tratando!");
                     vidas = vidas-1;
-                    System.out.println("Te quedan " + vidas + " vidas");
                 }
             } if (pregunta.getTipo()== "Multiplicacion"){
                 boolean R = pregunta.Multiplicacion();
@@ -35,7 +45,6 @@ public class main {
                 } else {
                     System.out.println("Incorrecto, sigue tratando!");
                     vidas = vidas-1;
-                    System.out.println("Te quedan " + vidas + " vidas");
                 }
             } if (pregunta.getTipo()== "Division"){
                 boolean R = pregunta.Division();
@@ -44,8 +53,10 @@ public class main {
                 } else {
                     System.out.println("Incorrecto, sigue tratando!");
                     vidas = vidas-1;
-                    System.out.println("Te quedan " + vidas + " vidas");
                 }
+                
+            } if (vidas == 0){
+                System.out.println("Ya no tienes vidas, inténtalo luego.");
             }
         }
     }

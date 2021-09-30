@@ -1,15 +1,27 @@
+/**
+ * Universidad del Valle de Guatemala
+ * Proyecto Final POO
+ * File: Preguntas 
+ * @author Diana Díaz 21066
+ * @author Sebastián Franco 21484
+ * @author Juan Miguel González-Campo 21077
+ * @author Mario Puente 21290
+ * @author Sebastián Reyes 21239
+ */
+
+ 
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
 public class preguntas {
-    int RespuestaC;
-    int Respuesta;
-    int primerN;
-    int SegundoN;
-    String tipo;
-    ArrayList<String> tipos = new ArrayList<String>();
+    private int RespuestaC;
+    private int Respuesta;
+    private int primerN;
+    private int SegundoN;
+    private String tipo;
+    private ArrayList<String> tipos = new ArrayList<String>();
     Random random = new Random();
     Scanner scan = new Scanner(System.in);
 

@@ -29,6 +29,7 @@ public class main {
                 } else {
                     System.out.println("Incorrecto, sigue tratando!");
                     vidas = vidas-1;
+                    System.out.println("Te quedan " + vidas + " vidas");
                 }
             } if (pregunta.getTipo()== "Resta"){
                 boolean R = pregunta.Resta();
@@ -37,6 +38,7 @@ public class main {
                 } else {
                     System.out.println("Incorrecto, sigue tratando!");
                     vidas = vidas-1;
+                    System.out.println("Te quedan " + vidas + " vidas");
                 }
             } if (pregunta.getTipo()== "Multiplicacion"){
                 boolean R = pregunta.Multiplicacion();
@@ -45,6 +47,7 @@ public class main {
                 } else {
                     System.out.println("Incorrecto, sigue tratando!");
                     vidas = vidas-1;
+                    System.out.println("Te quedan " + vidas + " vidas");
                 }
             } if (pregunta.getTipo()== "Division"){
                 boolean R = pregunta.Division();
@@ -53,6 +56,7 @@ public class main {
                 } else {
                     System.out.println("Incorrecto, sigue tratando!");
                     vidas = vidas-1;
+                    System.out.println("Te quedan " + vidas + " vidas");
                 }
                 
             } if (vidas == 0){

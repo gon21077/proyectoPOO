@@ -62,11 +62,11 @@ public class preguntas {
     public boolean Division(){
         double RespuestaC = primerN/SegundoN;
         System.out.println("Pregunta:");
-        System.out.println(Integer.toString(primerN)+" - "+Integer.toString(SegundoN));
+        System.out.println(Integer.toString(primerN)+" / "+Integer.toString(SegundoN));
         System.out.println("Ingrese su respuesta:");
         double Respuesta = scan.nextDouble();
 
-        if (Respuesta == RespuestaC){
+        if (double.compare(Respuesta, RespuestaC) == 0) {
             return true;
         } else {
             return false;

@@ -52,11 +52,7 @@ public class preguntas {
         System.out.println("Ingrese su respuesta:");
         Respuesta = scan.nextInt();
 
-        if (Respuesta == RespuestaC){
-            return true;
-        } else {
-            return false;
-        }
+        return Respuesta == RespuestaC;
     }
     public boolean Multiplicacion(){
         RespuestaC = primerN * SegundoN;
@@ -65,11 +61,7 @@ public class preguntas {
         System.out.println("Ingrese su respuesta:");
         Respuesta = scan.nextInt();
 
-        if (Respuesta == RespuestaC){
-            return true;
-        } else {
-            return false;
-        }
+        return Respuesta == RespuestaC;
     }
     public boolean Division(){
         double RespuestaC = primerN/SegundoN;
@@ -78,11 +70,7 @@ public class preguntas {
         System.out.println("Ingrese su respuesta:");
         double Respuesta = scan.nextDouble();
 
-        if (double.compare(Respuesta, RespuestaC) == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return Double.compare(Respuesta, RespuestaC) == 0;
     }
     public String getTipo(){
         return tipo;

@@ -2,6 +2,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
+import java.text.DecimalFormat;
 
 public class preguntas {
     int RespuestaC;
@@ -60,13 +61,16 @@ public class preguntas {
         }
     }
     public boolean Division(){
-        Double RespuestaC = primerN/SegundoN;
+        Double primerN1 = Double.valueOf(primerN);
+        Double SegundoN2 = Double.valueOf(SegundoN);
+        Double RespuestaC = (Double)primerN1/ (Double)SegundoN2;
+        String RespuestaNueva = new DecimalFormat("#.##").format(RespuestaC);
         System.out.println("Pregunta:");
-        System.out.println(Integer.toString(primerN)+" / "+Integer.toString(SegundoN));
-        System.out.println("Ingrese su respuesta:");
-        double Respuesta = scan.nextDouble();
+        System.out.println(Double.toString(primerN)+" / " + Double.toString(SegundoN));
+        System.out.println("Ingrese su respuesta redondeado a dos decimales: ");
+        String Respuesta = scan.nextLine();
 
-        if (double.compare(Respuesta, RespuestaC) == 0) {
+        if (Respuesta.equals(RespuestaNueva)) {
             return true;
         } else {
             return false;

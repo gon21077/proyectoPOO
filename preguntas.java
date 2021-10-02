@@ -79,4 +79,12 @@ public class preguntas {
     public String getTipo(){
         return tipo;
     }
+    
+    public int puntaje(){
+        int puntaje==0;
+        if(Respuesta==RespuestaC){
+          int puntaje_final = puntaje+1;
+            System.out.println("Su puntaje actual es de " + puntaje_final);
+        }
+    }
 }

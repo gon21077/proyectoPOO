@@ -11,12 +11,30 @@
 
 import java.util.Scanner;
 
+import javax.swing.BorderFactory;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+
 public class main {
+
+    /**
+     * 
+     */
+    public void GUI() {
+        JFrame frame = new JFrame();
+
+        JPanel panel = new JPanel();
+        panel.setBorder(BorderFactory.createEmptyBorder());
+    }
+
     public static preguntas pregunta = null;
+
     /**
      * @param args
      */
     public static void main(String[] args){
+        
         Scanner scan = new Scanner(System.in);
         int seleccion = 0;
         int vidas = 3;

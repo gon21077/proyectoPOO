@@ -11,9 +11,11 @@
 
 import java.util.Scanner;
 
-import javax.swing.BorderFactory;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
+
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+
 
 
 public class main {
@@ -25,7 +27,13 @@ public class main {
         JFrame frame = new JFrame();
 
         JPanel panel = new JPanel();
-        panel.setBorder(BorderFactory.createEmptyBorder());
+        panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30)); ///Ejemplo
+        panel.setLayout(new GridLayout()); /// de Awt
+
+        frame.add(comp, BorderLayout.CENTER);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+
     }
 
     public static preguntas pregunta = null;

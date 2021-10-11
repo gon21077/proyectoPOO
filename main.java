@@ -23,15 +23,23 @@ public class main {
     /**
      * 
      */
-    public void GUI() {
+    public main() { ///Constructor
         JFrame frame = new JFrame();
+
+        JButton button = new JButton();
+        JLabel label = new JLabel();
 
         JPanel panel = new JPanel();
         panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30)); ///Ejemplo
         panel.setLayout(new GridLayout()); /// de Awt
+        panel.add(button); ///Insertar Button
+        panel.add(label); ///Insertar el label
 
-        frame.add(comp, BorderLayout.CENTER);
+        frame.add(panel, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setTitle(""); ///Insertar el titulo.
+        frame.pack();
+        frame.setVisible(true);
 
 
     }
@@ -42,7 +50,8 @@ public class main {
      * @param args
      */
     public static void main(String[] args){
-        
+        new main(); ///
+
         Scanner scan = new Scanner(System.in);
         int seleccion = 0;
         int vidas = 3;

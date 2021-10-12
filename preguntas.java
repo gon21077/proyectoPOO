@@ -111,11 +111,10 @@ public class preguntas {
      * @return
      */
     public int puntaje(){
-        int puntaje = 0;
+        int puntaje == 0;
         if(Respuesta==RespuestaC){
           int puntaje_final = puntaje+1;
             System.out.println("Su puntaje actual es de " );
-            return puntaje;
         }
     }
 }

@@ -1,3 +1,14 @@
+/**
+ * Universidad del Valle de Guatemala
+ * Proyecto Final POO
+ * File: Archivos
+ * @author Diana Díaz 21066
+ * @author Sebastián Franco 21484
+ * @author Juan Miguel González-Campo 21077
+ * @author Mario Puente 21290
+ * @author Sebastián Reyes 21239
+ */
+
 public class Archivos {
     private String link_suma;
     private String link_resta;

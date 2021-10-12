@@ -13,12 +13,11 @@ import java.util.Scanner;
 
 import javax.swing.*;
 
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
+import java.awt.*;
 
 
 
-public class main {
+public class main  {
 
     /**
      * 
@@ -30,7 +29,7 @@ public class main {
         JLabel label = new JLabel();
 
         JPanel panel = new JPanel();
-        panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30)); ///Ejemplo
+        panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30)); ///Ejemplo, cambiar luego.
         panel.setLayout(new GridLayout()); /// de Awt
         panel.add(button); ///Insertar Button
         panel.add(label); ///Insertar el label

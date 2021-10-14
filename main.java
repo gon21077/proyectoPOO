@@ -44,6 +44,7 @@ public class main  {
     }
 
     public static preguntas pregunta = null;
+    public static Puntaje puntaje = null;
 
     /**
      * @param args
@@ -64,12 +65,15 @@ public class main  {
             seleccion = scan.nextInt();
 
             if(seleccion == 1) {
+                puntaje = new Puntaje();
                 while (vidas != 0) {
+                    System.out.println("Puntaje actual:"+puntaje.getPuntaje());
                     pregunta = new preguntas();
                     if (pregunta.getTipo() == "Suma") {
                         boolean R = pregunta.Suma();
                         if (R) {
                             System.out.println("Bien hecho!");
+                            puntaje.setPuntaje(1);
                         } else {
                             System.out.println("Incorrecto, sigue tratando!");
                             vidas = vidas - 1;
@@ -80,6 +84,7 @@ public class main  {
                         boolean R = pregunta.Resta();
                         if (R) {
                             System.out.println("Bien hecho!");
+                            puntaje.setPuntaje(1);
                         } else {
                             System.out.println("Incorrecto, sigue tratando!");
                             vidas = vidas - 1;
@@ -90,6 +95,7 @@ public class main  {
                         boolean R = pregunta.Multiplicacion();
                         if (R) {
                             System.out.println("Bien hecho!");
+                            puntaje.setPuntaje(1);
                         } else {
                             System.out.println("Incorrecto, sigue tratando!");
                             vidas = vidas - 1;
@@ -100,6 +106,7 @@ public class main  {
                         boolean R = pregunta.Division();
                         if (R) {
                             System.out.println("Bien hecho!");
+                            puntaje.setPuntaje(1);
                         } else {
                             System.out.println("Incorrecto, sigue tratando!");
                             vidas = vidas - 1;
@@ -107,10 +114,9 @@ public class main  {
                         }
 
                     }
-                    if (vidas == 0) {
-                        System.out.println("Ya no tienes vidas, inténtalo de nuevo. \n");
-                    }
                 }
+                System.out.println("Ya no tienes vidas, inténtalo de nuevo! \n");
+
             } else if (seleccion == 2){
                 Archivos archivos = new Archivos();
                 System.out.println("Tutoriales");

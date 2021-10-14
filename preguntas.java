@@ -82,7 +82,7 @@ public class preguntas {
         }
     }
     /**
-     * @return
+     * @return true si es correcto, false si no
      */
     public boolean Division(){
         Double primerN1 = Double.valueOf(primerN);
@@ -110,11 +110,4 @@ public class preguntas {
     /**
      * @return
      */
-    public int puntaje(){
-        int puntaje == 0;
-        if(Respuesta==RespuestaC){
-          int puntaje_final = puntaje+1;
-            System.out.println("Su puntaje actual es de " );
-        }
-    }
 }

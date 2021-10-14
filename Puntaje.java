@@ -8,19 +8,18 @@
  * @author Mario Puente 21290
  * @author Sebastián Reyes 21239
  */
-public class Puntaje extends preguntas{
-    private int Respuesta;
+public class Puntaje{
     private int puntos;
 
     public Puntaje(){
-        super();
+        puntos = 0;
     }
 
     /**
      * @param puntos
      */
-    public void setPuntaje(int puntos){
-
+    public void setPuntaje(int p){
+        puntos += p;
     }
 
     /**

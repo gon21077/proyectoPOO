@@ -115,7 +115,7 @@ public class main  {
 
                     }
                 }
-                System.out.println("Ya no tienes vidas, inténtalo de nuevo! \n");
+                System.out.println("\n\nYa no tienes vidas, inténtalo de nuevo! \n");
 
             } else if (seleccion == 2){
                 Archivos archivos = new Archivos();

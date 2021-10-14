@@ -39,7 +39,17 @@ public class preguntas {
         System.out.println("Pregunta:");
         System.out.println(Integer.toString(primerN)+" + "+Integer.toString(SegundoN));
         System.out.println("Ingrese su respuesta:");
-        Respuesta = scan.nextInt();
+        while (primerN != 989){
+            System.out.println("Ingrese su respuesta:");
+            try {
+                Respuesta = scan.nextInt();
+                break;
+            } catch(Exception e){
+                System.out.println("Ingrese solo un valor númerico entero para este tipo de pregunta");
+                scan.next();
+                continue;
+            }
+        }
 
         if (Respuesta == RespuestaC){
             return true;
@@ -56,7 +66,17 @@ public class preguntas {
         System.out.println("Pregunta:");
         System.out.println(Integer.toString(primerN)+" - "+Integer.toString(SegundoN));
         System.out.println("Ingrese su respuesta:");
-        Respuesta = scan.nextInt();
+        while (primerN != 989){
+            System.out.println("Ingrese su respuesta:");
+            try {
+                Respuesta = scan.nextInt();
+                break;
+            } catch(Exception e){
+                System.out.println("Ingrese solo un valor númerico entero para este tipo de pregunta");
+                scan.next();
+                continue;
+            }
+        }
 
         if (Respuesta == RespuestaC){
             return true;
@@ -72,8 +92,17 @@ public class preguntas {
         RespuestaC = primerN * SegundoN;
         System.out.println("Pregunta:");
         System.out.println(Integer.toString(primerN)+" * "+Integer.toString(SegundoN));
-        System.out.println("Ingrese su respuesta:");
-        Respuesta = scan.nextInt();
+        while (primerN != 989){
+            System.out.println("Ingrese su respuesta:");
+            try {
+                Respuesta = scan.nextInt();
+                break;
+            } catch(Exception e){
+                System.out.println("Ingrese solo un valor númerico entero para este tipo de pregunta");
+                scan.next();
+                continue;
+            }
+        }
 
         if (Respuesta == RespuestaC){
             return true;

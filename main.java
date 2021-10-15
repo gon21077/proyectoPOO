@@ -53,18 +53,18 @@ public class main  {
         new main(); ///
 
         Scanner scan = new Scanner(System.in);
-        int seleccion = 0;
+        boolean exit = false;
         int vidas = 3;
 
-        while (seleccion != 3){
+        while (!exit){
             System.out.println("\nBienvenido al juego de matematicas! Que va a hacer?");
             System.out.println("1... Iniciar juego");
             System.out.println("2... Ir a tutoriales");
             System.out.println("3... Salir\n");
 
-            seleccion = scan.nextLine();
+            String seleccion = scan.nextLine();
 
-            if(seleccion.equals("1") {
+            if(seleccion.equals("1")) {
                 puntaje = new Puntaje();
                 while (vidas != 0) {
                     System.out.println("Puntaje actual:"+puntaje.getPuntaje());
@@ -117,7 +117,7 @@ public class main  {
                 }
                 System.out.println("\n\nYa no tienes vidas, inténtalo de nuevo! \n");
 
-            } else if (seleccion.equals("2"){
+            } else if (seleccion.equals("2")) {
                 Archivos archivos = new Archivos();
                 System.out.println("Tutoriales");
                 System.out.println("Copie y pegue el link en el navegador del tema que desea reforzar.");
@@ -126,9 +126,9 @@ public class main  {
                 System.out.println("Multiplicacion: " + archivos.getLink_multiplicacion());
                 System.out.println("Division: " + archivos.getLink_division());
 
-            } else if (seleccion.equals("3"){
+            } else if (seleccion.equals("3")) {
                 System.out.println("Gracias por jugar!");
-                break;
+                exit = true;
 
             } else{
                 System.out.println("Opcion invalida, intenta de nuevo");
@@ -136,5 +136,6 @@ public class main  {
             }
 
         }
+        scan.close();
     }
 }

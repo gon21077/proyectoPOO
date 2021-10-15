@@ -8,6 +8,8 @@
  * @author Mario Puente 21290
  * @author Sebastián Reyes 21239
  */
+
+/* Es la clase puntaje, para llevar el puntaje del jugador*/
 public class Puntaje{
     private int puntos;
 
@@ -16,6 +18,7 @@ public class Puntaje{
     }
 
     /**
+     * Es el set de puntaje
      * @param puntos
      */
     public void setPuntaje(int p){
@@ -23,6 +26,7 @@ public class Puntaje{
     }
 
     /**
+     * es el get de puntaje
      * @return puntos
      */
     public int getPuntaje(){

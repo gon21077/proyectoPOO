@@ -25,18 +25,29 @@ public class main  {
     public main() { ///Constructor
         
         JPanel panel = new JPanel();
-        JLabel label1 = new JLabel("Bienvenido al juego de las matematicas", SwingConstants.CENTER);
-        JButton boton3 = new JButton("Jugar");
+        JButton boton1 = new JButton("Home");
+        JButton boton2 = new JButton("Opciones");
+        JButton boton3 = new JButton("Niveles");
+        JButton boton4 = new JButton("Archivos");
+        JTextField cajatexto1 = new JTextField("");
         
        
         JFrame marco = new JFrame();
         FlowLayout flow = new FlowLayout();
+        boton1.setLocation(30,30);
+        cajatexto1.setLocation(10, 50);
         panel.setLayout(flow);
-        panel.add(label1);
+        panel.setBackground(Color.BLUE);
+        boton1.setBackground(Color.GRAY);
+        panel.add(boton1);
+        panel.add(boton2);
         panel.add(boton3);
+        panel.add(boton4);
+        panel.add(cajatexto1);
         marco.add(panel);
         marco.setTitle("Juego de las Matematicas");
-        marco.setSize(400, 150);
+        marco.setSize(500, 500);
+        boton1.setAlignmentY(Component.TOP_ALIGNMENT);
         marco.setResizable(true);
         marco.setLocationRelativeTo(null);
         marco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

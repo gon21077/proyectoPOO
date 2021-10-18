@@ -23,22 +23,24 @@ public class main  {
      * 
      */
     public main() { ///Constructor
-        JFrame frame = new JFrame();
-
-        JButton button = new JButton();
-        JLabel label = new JLabel();
-
+        
         JPanel panel = new JPanel();
-        panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30)); ///Ejemplo, cambiar luego.
-        panel.setLayout(new GridLayout()); /// de Awt
-        panel.add(button); ///Insertar Button
-        panel.add(label); ///Insertar el label
-
-        frame.add(panel, BorderLayout.CENTER);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setTitle(""); ///Insertar el titulo.
-        frame.pack();
-        frame.setVisible(true);
+        JLabel label1 = new JLabel("Bienvenido al juego de las matematicas", SwingConstants.CENTER);
+        JButton boton3 = new JButton("Jugar");
+        
+       
+        JFrame marco = new JFrame();
+        FlowLayout flow = new FlowLayout();
+        panel.setLayout(flow);
+        panel.add(label1);
+        panel.add(boton3);
+        marco.add(panel);
+        marco.setTitle("Juego de las Matematicas");
+        marco.setSize(400, 150);
+        marco.setResizable(true);
+        marco.setLocationRelativeTo(null);
+        marco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        marco.setVisible(true);
 
 
     }

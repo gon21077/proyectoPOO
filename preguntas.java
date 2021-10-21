@@ -40,7 +40,7 @@ public class preguntas {
         System.out.println(Integer.toString(primerN)+" + "+Integer.toString(SegundoN));
         System.out.println("Ingrese su respuesta:");
         while (primerN != 989){
-            System.out.println("Ingrese su respuesta:");
+
             try {
                 Respuesta = scan.nextInt();
                 break;
@@ -67,7 +67,7 @@ public class preguntas {
         System.out.println(Integer.toString(primerN)+" - "+Integer.toString(SegundoN));
         System.out.println("Ingrese su respuesta:");
         while (primerN != 989){
-            System.out.println("Ingrese su respuesta:");
+
             try {
                 Respuesta = scan.nextInt();
                 break;

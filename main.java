@@ -19,6 +19,7 @@ import java.awt.*;
 
 public class main  {
 
+    // Se crea el panel afuera para que las clases private puedan hacer referencia a el 
     JPanel panel = new JPanel();
     
 
@@ -27,6 +28,7 @@ public class main  {
      */
     public main() { ///Constructor
         
+        // Se hace referencia a los metodos de botones y cajas de texto para agregarlos al panel
         BotonHome();
         BotonOpciones();
         BotonArchivos();
@@ -47,17 +49,22 @@ public class main  {
         
         
     }
-
+    // Se crea el Boton Home 
     private void BotonHome(){
+        // Se instancia el boton
         JButton boton1 = new JButton("Home");
+        // Con la funcion setbounds se coloca la posicion en X y Y del boton y se colocan las dimensiones del boton
         boton1.setBounds(50, 30, 100, 40);
         panel.add(boton1);
         
     }
 
     private void CajasTexto(){
+        //Se instancian las cajas de texto
         JTextField cajatextop = new JTextField("Aca va a ir la pregunta");
+        // Con la funcion setbounds se coloca la posicion en X y Y del boton y se colocan las dimensiones de la caja de texto
         cajatextop.setBounds(150, 250, 200, 40);
+        // Se agrega la caja de texto al panel
         panel.add(cajatextop);
         JTextField cajatextor = new JTextField("Aca va a ir la Respuesta");
         cajatextor.setBounds(150, 300, 200, 40);
@@ -65,30 +72,45 @@ public class main  {
     }
 
     private void BotonOpciones(){
+        // Se instancia el boton
         JButton boton2 = new JButton("Opciones");
+        // Con la funcion setbounds se coloca la posicion en X y Y del boton y se colocan las dimensiones del boton
         boton2.setBounds(150, 30, 100, 40);
+         // Se añade el boton al panel
         panel.add(boton2);
     }
 
     private void BotonArchivos(){
+        // Se instancia el boton
         JButton boton3 = new JButton("Archivos");
+        // Con la funcion setbounds se coloca la posicion en X y Y del boton y se colocan las dimensiones del boton
         boton3.setBounds(250, 30, 100, 40);
+         // Se añade el boton al panel
         panel.add(boton3);
     }
 
     private void BotonNiveles(){
+        // Se instancia el boton
         JButton boton4 = new JButton("Niveles");
+        // se instancia el label que llevara el titulo
         JLabel titulo = new JLabel("Bienvenido al juego");
+        // Se cambia el color del titulo a Blanco
         titulo.setForeground(Color.WHITE);
         titulo.setBounds(190, 100, 300, 40);
+        // Con la funcion setbounds se coloca la posicion en X y Y del boton y se colocan las dimensiones del boton
         boton4.setBounds(350, 30, 100, 40);
+         // Se añade el boton al panel
         panel.add(boton4);
+         // Se añade el label al panel
         panel.add(titulo);
     }
 
     private void BotonEnviar(){
+        // Se instancia el boton
         JButton boton5 = new JButton("Enviar");
+        // Con la funcion setbounds se coloca la posicion en X y Y del boton y se colocan las dimensiones del boton
         boton5.setBounds(50, 400, 100, 40);
+        // Se añade el boton al panel
         panel.add(boton5);
     }
 

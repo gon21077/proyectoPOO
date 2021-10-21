@@ -9,6 +9,10 @@
  * @author Sebastián Reyes 21239
  */
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.util.Objects;
 import java.util.Scanner;
 
 import javax.swing.*;
@@ -135,6 +139,8 @@ public class main  {
         Scanner scan = new Scanner(System.in);
         boolean exit = false;
         int vidas = 3;
+        String filepath = "puntaje.csv";
+        String nombre;
 
         while (!exit){
             System.out.println("\nBienvenido al juego de matematicas! Que va a hacer?");
@@ -145,11 +151,13 @@ public class main  {
             String seleccion = scan.nextLine();
 
             if(seleccion.equals("1")) {
+                System.out.println("Ingresa tu nombre");
+                nombre = scan.next();
                 puntaje = new Puntaje();
                 while (vidas != 0) {
                     System.out.println("Puntaje actual:"+puntaje.getPuntaje());
                     pregunta = new preguntas();
-                    if (pregunta.getTipo() == "Suma") {
+                    if (Objects.equals(pregunta.getTipo(), "Suma")) {
                         boolean R = pregunta.Suma();
                         if (R) {
                             System.out.println("Bien hecho!");
@@ -160,7 +168,7 @@ public class main  {
                             System.out.println("Te quedan " + vidas + " vidas");
                         }
                     }
-                    if (pregunta.getTipo() == "Resta") {
+                    if (Objects.equals(pregunta.getTipo(), "Resta")) {
                         boolean R = pregunta.Resta();
                         if (R) {
                             System.out.println("Bien hecho!");
@@ -171,7 +179,7 @@ public class main  {
                             System.out.println("Te quedan " + vidas + " vidas");
                         }
                     }
-                    if (pregunta.getTipo() == "Multiplicacion") {
+                    if (Objects.equals(pregunta.getTipo(), "Multiplicacion")) {
                         boolean R = pregunta.Multiplicacion();
                         if (R) {
                             System.out.println("Bien hecho!");
@@ -182,7 +190,7 @@ public class main  {
                             System.out.println("Te quedan " + vidas + " vidas");
                         }
                     }
-                    if (pregunta.getTipo() == "Division") {
+                    if (Objects.equals(pregunta.getTipo(), "Division")) {
                         boolean R = pregunta.Division();
                         if (R) {
                             System.out.println("Bien hecho!");
@@ -195,6 +203,19 @@ public class main  {
 
                     }
                 }
+                // Persistencia de datos
+                try{
+                    FileWriter fw = new FileWriter(filepath,true);
+                    BufferedWriter bw = new BufferedWriter(fw);
+                    PrintWriter pw = new PrintWriter(bw);
+                    pw.println(nombre+","+puntaje.getPuntaje());
+                    pw.flush();
+                    pw.close();
+                    System.out.println("Su puntaje se ha guardado con exito");
+                } catch(Exception E){
+                    System.out.println("Ocurrio un error al guardar el puntaje.");
+                }
+
                 System.out.println("\n\nYa no tienes vidas, inténtalo de nuevo! \n");
 
             } else if (seleccion.equals("2")) {

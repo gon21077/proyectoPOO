@@ -19,42 +19,86 @@ import java.awt.*;
 
 public class main  {
 
+    JPanel panel = new JPanel();
+    
+
     /**
      * 
      */
     public main() { ///Constructor
         
-        JPanel panel = new JPanel();
-        JButton boton1 = new JButton("Home");
-        JButton boton2 = new JButton("Opciones");
-        JButton boton3 = new JButton("Puntaje Global");
-        JButton boton4 = new JButton("Archivos");
-        JTextField cajatexto1 = new JTextField("");
+        BotonHome();
+        BotonOpciones();
+        BotonArchivos();
+        BotonNiveles();
+        CajasTexto();
+        BotonEnviar();
         
-       
-        JFrame marco = new JFrame();
-        FlowLayout flow = new FlowLayout();
-        boton1.setLocation(30,30);
-        cajatexto1.setLocation(10, 50);
-        panel.setLayout(flow);
+         JFrame marco = new JFrame();
+        panel.setLayout(null);
         panel.setBackground(Color.BLUE);
-        boton1.setBackground(Color.GRAY);
-        panel.add(boton1);
-        panel.add(boton2);
-        panel.add(boton3);
-        panel.add(boton4);
-        panel.add(cajatexto1);
         marco.add(panel);
         marco.setTitle("Juego de las Matematicas");
         marco.setSize(500, 500);
-        boton1.setAlignmentY(Component.TOP_ALIGNMENT);
         marco.setResizable(true);
         marco.setLocationRelativeTo(null);
         marco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         marco.setVisible(true);
-
-
+        
+        
     }
+
+    private void BotonHome(){
+        JButton boton1 = new JButton("Home");
+        boton1.setBounds(50, 30, 100, 40);
+        panel.add(boton1);
+        
+    }
+
+    private void CajasTexto(){
+        JTextField cajatextop = new JTextField("Aca va a ir la pregunta");
+        cajatextop.setBounds(150, 250, 200, 40);
+        panel.add(cajatextop);
+        JTextField cajatextor = new JTextField("Aca va a ir la Respuesta");
+        cajatextor.setBounds(150, 300, 200, 40);
+        panel.add(cajatextor);
+    }
+
+    private void BotonOpciones(){
+        JButton boton2 = new JButton("Opciones");
+        boton2.setBounds(150, 30, 100, 40);
+        panel.add(boton2);
+    }
+
+    private void BotonArchivos(){
+        JButton boton3 = new JButton("Archivos");
+        boton3.setBounds(250, 30, 100, 40);
+        panel.add(boton3);
+    }
+
+    private void BotonNiveles(){
+        JButton boton4 = new JButton("Niveles");
+        JLabel titulo = new JLabel("Bienvenido al juego");
+        titulo.setForeground(Color.WHITE);
+        titulo.setBounds(190, 100, 300, 40);
+        boton4.setBounds(350, 30, 100, 40);
+        panel.add(boton4);
+        panel.add(titulo);
+    }
+
+    private void BotonEnviar(){
+        JButton boton5 = new JButton("Enviar");
+        boton5.setBounds(50, 400, 100, 40);
+        panel.add(boton5);
+    }
+
+    
+
+    private void CajaPreguntas(){
+        JTextField cajatexto1 = new JTextField();
+        panel.add(cajatexto1);
+    }
+    
 
     public static preguntas pregunta = null;
     public static Puntaje puntaje = null;

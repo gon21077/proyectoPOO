@@ -6,7 +6,7 @@
  * @author Sebastián Franco 21484
  * @author Juan Miguel González-Campo 21077
  * @author Mario Puente 21290
- * @author Sebastián Reyes 21239
+ * @author Sebastián Reyes 21139
  */
 
 import java.util.Scanner;

@@ -27,7 +27,7 @@ public class main  {
         JPanel panel = new JPanel();
         JButton boton1 = new JButton("Home");
         JButton boton2 = new JButton("Opciones");
-        JButton boton3 = new JButton("Niveles");
+        JButton boton3 = new JButton("Puntaje Global");
         JButton boton4 = new JButton("Archivos");
         JTextField cajatexto1 = new JTextField("");
         

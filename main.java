@@ -129,6 +129,16 @@ public class main  {
         JButton boton2 = new JButton("Opciones");
         boton2.setBounds(150, 30, 100, 40);
         panel.add(boton2);
+        ActionListener click1 = new ActionListener(){
+
+            Opciones opciones = new Opciones();
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                opciones.Opciones();
+                
+            }
+        };
+        boton2.addActionListener(click1);
     }
 
     private void BotonArchivos(){

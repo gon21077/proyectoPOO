@@ -19,8 +19,7 @@ public class preguntas {
     int Respuesta;
     int primerN;
     int SegundoN;
-    String tipo;
-    ArrayList<String> tipos = new ArrayList<String>();
+    int tipo;
     Random random = new Random();
     Scanner scan = new Scanner(System.in);
 
@@ -30,90 +29,36 @@ public class preguntas {
     public preguntas(){
         primerN = (int)(Math.random()*(100));
         SegundoN = (int)(Math.random()*(100));
-        Collections.addAll(tipos, "Suma", "Resta", "Multiplicacion", "Division");
-        tipo = tipos.get(random.nextInt(tipos.size()));
+        tipo = random.nextInt(4)+1;
     }
 
-    public boolean Suma(){
-        RespuestaC = primerN + SegundoN;
-        System.out.println("Pregunta:");
-        System.out.println(Integer.toString(primerN)+" + "+Integer.toString(SegundoN));
-        System.out.println("Ingrese su respuesta:");
-        while (primerN != 989){
-
-            try {
-                Respuesta = scan.nextInt();
-                break;
-            } catch(Exception e){
-                System.out.println("Ingrese solo un valor númerico entero para este tipo de pregunta");
-                scan.next();
-                continue;
-            }
-        }
-
-        if (Respuesta == RespuestaC){
-            return true;
-        } else {
-            return false;
-        }
+    public String Suma(){
+        String p1 = Integer.toString(primerN) +" + "+ Integer.toString(SegundoN);
+        return p1;
     }
 
     /**
      * @return
      */
-    public boolean Resta(){
-        RespuestaC = primerN - SegundoN;
-        System.out.println("Pregunta:");
-        System.out.println(Integer.toString(primerN)+" - "+Integer.toString(SegundoN));
-        System.out.println("Ingrese su respuesta:");
-        while (primerN != 989){
-
-            try {
-                Respuesta = scan.nextInt();
-                break;
-            } catch(Exception e){
-                System.out.println("Ingrese solo un valor númerico entero para este tipo de pregunta");
-                scan.next();
-                continue;
-            }
-        }
-
-        if (Respuesta == RespuestaC){
-            return true;
-        } else {
-            return false;
-        }
-
+    public String Resta(){
+        String p1 = Integer.toString(primerN) +" - "+ Integer.toString(SegundoN);
+        return p1;
     }
     /**
      * @return
      */
-    public boolean Multiplicacion(){
-        RespuestaC = primerN * SegundoN;
-        System.out.println("Pregunta:");
-        System.out.println(Integer.toString(primerN)+" * "+Integer.toString(SegundoN));
-        while (primerN != 989){
-            System.out.println("Ingrese su respuesta:");
-            try {
-                Respuesta = scan.nextInt();
-                break;
-            } catch(Exception e){
-                System.out.println("Ingrese solo un valor númerico entero para este tipo de pregunta");
-                scan.next();
-                continue;
-            }
-        }
-
-        if (Respuesta == RespuestaC){
-            return true;
-        } else {
-            return false;
-        }
+    public String Multiplicacion(){
+        String p1 = Integer.toString(primerN) +" * "+ Integer.toString(SegundoN);
+        return p1;
     }
     /**
      * @return true si es correcto, false si no
      */
-    public boolean Division(){
+    public String Division(){
+        String p1 = Integer.toString(primerN) +" / "+ Integer.toString(SegundoN);
+        return p1;
+
+        /*
         Double primerN1 = Double.valueOf(primerN);
         Double SegundoN2 = Double.valueOf(SegundoN);
         Double RespuestaC = (Double)primerN1/ (Double)SegundoN2;
@@ -128,15 +73,33 @@ public class preguntas {
         } else {
             return false;
         }
+        */
     }
     /**
      * @return tipo
      */
-    public String getTipo(){
+    public int getTipo(){
         return tipo;
     }
     
-    /**
-     * @return
-     */
+    public int Respuesta(){
+        if (tipo==1){
+            RespuestaC = primerN + SegundoN;
+        } if (tipo==2){
+            RespuestaC = primerN-SegundoN;
+        } if (tipo == 3){
+            RespuestaC = primerN*SegundoN;
+        } 
+        return RespuestaC;
+    }
+    public String RespuestaDiv(){  
+            Double primerN1 = Double.valueOf(primerN);
+            Double SegundoN2 = Double.valueOf(SegundoN);
+            Double RespuestaC = (Double)primerN1/ (Double)SegundoN2;
+            String RespuestaNueva = new DecimalFormat("#.##").format(RespuestaC);
+            
+            return RespuestaNueva;
+        
+    }
+
 }

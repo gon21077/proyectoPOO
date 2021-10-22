@@ -20,15 +20,28 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.FocusEvent;
 
 
 
 public class main  {
 
     public static Archivos Archivos = null;
+    public int r = 0;
+    public String p = "";
+    public String r1 = "";
+    public int preguntasNumero = 1;
+    public int preguntasContestadas = 0;
+    public int vidas = 3;
+    public JTextField cajatextor = null;
+    public static preguntas pregunta = null;
+    public static Puntaje puntaje = null;
+
 
     JPanel panel = new JPanel();
-    
+    JFrame marco = new JFrame();
 
     /**
      * 
@@ -41,8 +54,11 @@ public class main  {
         BotonNiveles();
         CajasTexto();
         BotonEnviar();
+        System.out.println(r1);
+        System.out.println(r);
+        puntaje = new Puntaje();
         
-         JFrame marco = new JFrame();
+        marco = new JFrame();
         panel.setLayout(null);
         panel.setBackground(Color.BLUE);
         marco.add(panel);
@@ -62,14 +78,51 @@ public class main  {
         panel.add(boton1);
         
     }
+    
 
+  
     private void CajasTexto(){
-        JTextField cajatextop = new JTextField("Aca va a ir la pregunta");
-        cajatextop.setBounds(150, 250, 200, 40);
-        panel.add(cajatextop);
-        JTextField cajatextor = new JTextField("Aca va a ir la Respuesta");
+        
+        pregunta = new preguntas();
+        if (pregunta.getTipo() == 1) {
+            p = pregunta.Suma();
+            r = pregunta.Respuesta();
+        } if (pregunta.getTipo()== 2) {
+            p = pregunta.Resta();
+            r = pregunta.Respuesta();
+        } if (pregunta.getTipo() == 3) {
+            p = pregunta.Multiplicacion();
+            r = pregunta.Respuesta();
+        } if (pregunta.getTipo()== 4){
+            p = pregunta.Division();
+            r1 = pregunta.RespuestaDiv();
+        }
+
+        JLabel preguntaAqui = new JLabel("Pregunta "+preguntasNumero);
+        preguntaAqui.setBounds(200, 200, 200, 40);
+        preguntaAqui.setForeground(Color.WHITE);
+        preguntaAqui.setFont(new Font("Verdana",Font.PLAIN,20));
+        panel.add(preguntaAqui);
+
+
+        JLabel preguntaLabel = new JLabel ("");
+        preguntaLabel.setText(p);
+        preguntaLabel.setBounds(220, 250, 200, 40);
+        preguntaLabel.setForeground(Color.WHITE);
+        preguntaLabel.setFont(new Font("Verdana",Font.PLAIN,20));
+        panel.add(preguntaLabel);
+
+        cajatextor = new JTextField("Ingrese su respuesta");
         cajatextor.setBounds(150, 300, 200, 40);
         panel.add(cajatextor);
+
+
+        cajatextor.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                cajatextor.setText("");;
+            }
+        });
+        panel.repaint();
     }
 
     private void BotonOpciones(){
@@ -109,9 +162,89 @@ public class main  {
     }
 
     private void BotonEnviar(){
+        
         JButton boton5 = new JButton("Enviar");
         boton5.setBounds(50, 400, 100, 40);
         panel.add(boton5);
+
+        ActionListener actionListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println(cajatextor.getText());
+                String res = "";
+
+                int respuestadada = 0;
+                try{
+                    respuestadada = Integer.parseInt(cajatextor.getText());
+                } catch (Exception i){
+                    res = cajatextor.getText();
+                }
+                if (pregunta.getTipo() == 4){
+                    if (res.equals(r1)){
+                        panel.removeAll();
+                        puntaje.setPuntaje(1);
+                        preguntasContestadas = preguntasContestadas+1;
+                        preguntasNumero = preguntasNumero+1;
+                        BotonHome();
+                        BotonOpciones();
+                        BotonArchivos();
+                        BotonNiveles();
+                        CajasTexto();
+                        BotonEnviar();  
+                    } else {
+                        panel.removeAll();
+                        vidas = vidas-1;
+                        if (vidas < 1){
+                            JLabel GameOver = new JLabel("Perdiste");
+                            GameOver.setBounds(200, 200, 200, 40);
+                            GameOver.setForeground(Color.WHITE);
+                            GameOver.setFont(new Font("Verdana",Font.PLAIN,20));
+                            panel.add(GameOver);
+                        } else {
+                            BotonHome();
+                            BotonOpciones();
+                            BotonArchivos();
+                            BotonNiveles();
+                            CajasTexto();
+                            BotonEnviar();
+                        }
+                    }
+                } else {
+                    if (respuestadada == r){
+                        panel.removeAll();
+                        puntaje.setPuntaje(1);
+                        preguntasContestadas = preguntasContestadas+1;
+                        preguntasNumero = preguntasNumero+1;
+                        BotonHome();
+                        BotonOpciones();
+                        BotonArchivos();
+                        BotonNiveles();
+                        CajasTexto();
+                        BotonEnviar();
+                    } else {
+                        panel.removeAll();
+                        vidas = vidas-1;
+                        if (vidas < 1){
+                            JLabel GameOver = new JLabel("Perdiste");
+                            GameOver.setBounds(200, 200, 200, 40);
+                            GameOver.setForeground(Color.WHITE);
+                            GameOver.setFont(new Font("Verdana",Font.PLAIN,20));
+                            panel.add(GameOver);
+                        } else {
+                            BotonHome();
+                            BotonOpciones();
+                            BotonArchivos();
+                            BotonNiveles();
+                            CajasTexto();
+                            BotonEnviar();
+                        }
+                    }
+                }
+            }
+        };
+        boton5.addActionListener(actionListener);
+               
+
     }
 
     
@@ -127,116 +260,7 @@ public class main  {
 
 
 
-    public static preguntas pregunta = null;
-    public static Puntaje puntaje = null;
-
-    /**
-     * @param args
-     */
-    public static void main(String[] args){
-        new main(); ///
-
-        Scanner scan = new Scanner(System.in);
-        boolean exit = false;
-        int vidas = 3;
-        String filepath = "puntaje.csv";
-        String nombre;
-
-        while (!exit){
-            System.out.println("\nBienvenido al juego de matematicas! Que va a hacer?");
-            System.out.println("1... Iniciar juego");
-            System.out.println("2... Ir a tutoriales");
-            System.out.println("3... Salir\n");
-
-            String seleccion = scan.nextLine();
-
-            if(seleccion.equals("1")) {
-                System.out.println("Ingresa tu nombre");
-                nombre = scan.next();
-                puntaje = new Puntaje();
-                while (vidas != 0) {
-                    System.out.println("Puntaje actual:"+puntaje.getPuntaje());
-                    pregunta = new preguntas();
-                    if (Objects.equals(pregunta.getTipo(), "Suma")) {
-                        boolean R = pregunta.Suma();
-                        if (R) {
-                            System.out.println("Bien hecho!");
-                            puntaje.setPuntaje(1);
-                        } else {
-                            System.out.println("Incorrecto, sigue tratando!");
-                            vidas = vidas - 1;
-                            System.out.println("Te quedan " + vidas + " vidas");
-                        }
-                    }
-                    if (Objects.equals(pregunta.getTipo(), "Resta")) {
-                        boolean R = pregunta.Resta();
-                        if (R) {
-                            System.out.println("Bien hecho!");
-                            puntaje.setPuntaje(1);
-                        } else {
-                            System.out.println("Incorrecto, sigue tratando!");
-                            vidas = vidas - 1;
-                            System.out.println("Te quedan " + vidas + " vidas");
-                        }
-                    }
-                    if (Objects.equals(pregunta.getTipo(), "Multiplicacion")) {
-                        boolean R = pregunta.Multiplicacion();
-                        if (R) {
-                            System.out.println("Bien hecho!");
-                            puntaje.setPuntaje(1);
-                        } else {
-                            System.out.println("Incorrecto, sigue tratando!");
-                            vidas = vidas - 1;
-                            System.out.println("Te quedan " + vidas + " vidas");
-                        }
-                    }
-                    if (Objects.equals(pregunta.getTipo(), "Division")) {
-                        boolean R = pregunta.Division();
-                        if (R) {
-                            System.out.println("Bien hecho!");
-                            puntaje.setPuntaje(1);
-                        } else {
-                            System.out.println("Incorrecto, sigue tratando!");
-                            vidas = vidas - 1;
-                            System.out.println("Te quedan " + vidas + " vidas");
-                        }
-
-                    }
-                }
-                // Persistencia de datos
-                try{
-                    FileWriter fw = new FileWriter(filepath,true);
-                    BufferedWriter bw = new BufferedWriter(fw);
-                    PrintWriter pw = new PrintWriter(bw);
-                    pw.println(nombre+","+puntaje.getPuntaje());
-                    pw.flush();
-                    pw.close();
-                    System.out.println("Su puntaje se ha guardado con exito");
-                } catch(Exception E){
-                    System.out.println("Ocurrio un error al guardar el puntaje.");
-                }
-
-                System.out.println("\n\nYa no tienes vidas, inténtalo de nuevo! \n");
-
-            } else if (seleccion.equals("2")) {
-                Archivos archivos = new Archivos();
-                System.out.println("Tutoriales");
-                System.out.println("Copie y pegue el link en el navegador del tema que desea reforzar.");
-                //System.out.println("Sumas: " + archivos.getLink_suma());
-                //System.out.println("Restas: " + archivos.getLink_resta());
-                //System.out.println("Multiplicacion: " + archivos.getLink_multiplicacion());
-                //System.out.println("Division: " + archivos.getLink_division());
-
-            } else if (seleccion.equals("3")) {
-                System.out.println("Gracias por jugar!");
-                exit = true;
-
-            } else{
-                System.out.println("Opcion invalida, intenta de nuevo");
-
-            }
-
-        }
-        scan.close();
-    }
+public static void main(String[]args){
+    new main();
+}
 }

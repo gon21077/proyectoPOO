@@ -39,9 +39,10 @@ public class main  {
     public int preguntasContestadas = 0;
     public int vidas = 3;
     public JTextField cajatextor = null;
+    public JTextField cajanombre = null;
     public static preguntas pregunta = null;
     public static Puntaje puntaje = null;
-
+    String filepath = "puntaje.csv";
 
     JPanel panel = new JPanel();
     JFrame marco = new JFrame();
@@ -85,6 +86,17 @@ public class main  {
         ActionListener clickHome = new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
+                try{
+                    String nombre = cajanombre.getText();
+                    FileWriter fw = new FileWriter(filepath,true);
+                    BufferedWriter bw = new BufferedWriter(fw);
+                    PrintWriter pw = new PrintWriter(bw);
+                    pw.println(nombre+","+puntaje.getPuntaje());
+                    pw.flush();
+                    pw.close();
+                } catch(Exception E){
+                    System.out.println("Ocurrio un error al guardar el puntaje.");
+                }
                 new main();
                 
             } 
@@ -138,10 +150,9 @@ public class main  {
         cajatextor.setBounds(150, 300, 200, 40);
         panel.add(cajatextor);
 
-
         cajatextor.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
-                cajatextor.setText("");;
+                cajatextor.setText("");
             }
         });
     }
@@ -217,6 +228,7 @@ public class main  {
                 }
                 if (pregunta.getTipo() == 4){
                     if (res.equals(r1)){
+                        String nombre = cajanombre.getText();
                         panel.removeAll();
                         panel.repaint();
                         puntaje.setPuntaje(1);
@@ -295,6 +307,19 @@ public class main  {
     }
 
     private void GameOver(){
+        /*
+        para ingresar nombre
+         */
+        cajanombre = new JTextField("Ingrese su nombre");
+        cajanombre.setBounds(1,160,200,40);
+        panel.add(cajanombre);
+
+        cajanombre.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                cajanombre.setText("");
+            }
+        });
+
         JLabel GameOver = new JLabel("Perdiste:( tu puntaje fue de: "+ Integer.toString(puntaje.getPuntaje()));
         GameOver.setBounds(1, 200, 400, 40);
         GameOver.setForeground(Color.WHITE);

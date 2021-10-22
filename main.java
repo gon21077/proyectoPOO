@@ -82,6 +82,15 @@ public class main  {
         boton1.setBounds(50, 30, 100, 40);
         panel.add(boton1);
         
+        ActionListener clickHome = new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new main();
+                
+            } 
+        }; 
+
+        boton1.addActionListener(clickHome);
     }
     
 
@@ -226,6 +235,7 @@ public class main  {
                         /*si no  */
                         if (vidas < 1){
                             GameOver();
+                            BotonHome();
                         } else {
                             BotonHome();
                             BotonOpciones();
@@ -254,6 +264,7 @@ public class main  {
                         vidas = vidas-1;
                         if (vidas < 1){
                             GameOver();
+                            BotonHome();
                         } else {
                             BotonHome();
                             BotonOpciones();
@@ -284,10 +295,10 @@ public class main  {
     }
 
     private void GameOver(){
-        JLabel GameOver = new JLabel("Perdiste:( tu puntaje fue de: "+puntaje.getPuntaje());
-        GameOver.setBounds(1, 200, 200, 40);
+        JLabel GameOver = new JLabel("Perdiste:( tu puntaje fue de: "+ Integer.toString(puntaje.getPuntaje()));
+        GameOver.setBounds(1, 200, 400, 40);
         GameOver.setForeground(Color.WHITE);
-        GameOver.setFont(new Font("Verdana",Font.PLAIN,15));
+        GameOver.setFont(new Font("Verdana",Font.PLAIN,20));
         panel.add(GameOver);
     }
 
@@ -298,5 +309,5 @@ public class main  {
  */
 public static void main(String[]args){
     new main();
-}
+    }
 }

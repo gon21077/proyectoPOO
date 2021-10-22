@@ -6,9 +6,10 @@
  * @author Sebastián Franco 21484
  * @author Juan Miguel González-Campo 21077
  * @author Mario Puente 21290
- * @author Sebastián Reyes 21239
+ * @author Sebastián Reyes 21139
  */
 
+ /*imports */
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.PrintWriter;
@@ -26,8 +27,10 @@ import java.awt.event.FocusEvent;
 
 
 
+/*clase main */
 public class main  {
 
+    
     public static Archivos Archivos = null;
     public int r = 0;
     public String p = "";
@@ -72,6 +75,7 @@ public class main  {
         
     }
 
+    /*es el boton home */
     private void BotonHome(){
         JButton boton1 = new JButton("Home");
         boton1.setBounds(50, 30, 100, 40);
@@ -81,23 +85,30 @@ public class main  {
     
 
   
+    /*es la caja de texto para las preguntas y respuestas */
     private void CajasTexto(){
         
+        /*instanciar las preguntas */
         pregunta = new preguntas();
+        /*si es suma */
         if (pregunta.getTipo() == 1) {
             p = pregunta.Suma();
             r = pregunta.Respuesta();
+            /*si es resta */
         } if (pregunta.getTipo()== 2) {
             p = pregunta.Resta();
             r = pregunta.Respuesta();
         } if (pregunta.getTipo() == 3) {
+            /*si es multiplicacion */
             p = pregunta.Multiplicacion();
             r = pregunta.Respuesta();
+            /*si es division */
         } if (pregunta.getTipo()== 4){
             p = pregunta.Division();
             r1 = pregunta.RespuestaDiv();
         }
 
+        /*un nuevo label para preguntas*/
         JLabel preguntaAqui = new JLabel("Pregunta "+preguntasNumero);
         preguntaAqui.setBounds(200, 200, 200, 40);
         preguntaAqui.setForeground(Color.WHITE);
@@ -112,6 +123,7 @@ public class main  {
         preguntaLabel.setFont(new Font("Verdana",Font.PLAIN,20));
         panel.add(preguntaLabel);
 
+        /*para ingresar respuesta */
         cajatextor = new JTextField("Ingrese su respuesta");
         cajatextor.setBounds(150, 300, 200, 40);
         panel.add(cajatextor);
@@ -125,6 +137,7 @@ public class main  {
         panel.repaint();
     }
 
+    /*para las opciones */
     private void BotonOpciones(){
         JButton boton2 = new JButton("Opciones");
         boton2.setBounds(150, 30, 100, 40);
@@ -141,6 +154,7 @@ public class main  {
         boton2.addActionListener(click1);
     }
 
+    /*boton para los archivos */
     private void BotonArchivos(){
         
         JButton boton3 = new JButton("Archivos");
@@ -160,6 +174,7 @@ public class main  {
         boton3.addActionListener(click);
     }        
 
+    /*boton para los niveles */
     private void BotonNiveles(){
         JButton boton4 = new JButton("Niveles");
         JLabel titulo = new JLabel("Bienvenido al juego");
@@ -171,6 +186,7 @@ public class main  {
         panel.add(titulo);
     }
 
+    /*boton para enviar respuestas */
     private void BotonEnviar(){
         
         JButton boton5 = new JButton("Enviar");
@@ -184,6 +200,7 @@ public class main  {
                 String res = "";
 
                 int respuestadada = 0;
+                /*por si hay un error */
                 try{
                     respuestadada = Integer.parseInt(cajatextor.getText());
                 } catch (Exception i){
@@ -201,9 +218,10 @@ public class main  {
                         BotonNiveles();
                         CajasTexto();
                         BotonEnviar();  
-                    } else {
+                    } else {/*si la tiene mala  */
                         panel.removeAll();
                         vidas = vidas-1;
+                        /*si no  */
                         if (vidas < 1){
                             JLabel GameOver = new JLabel("Perdiste");
                             GameOver.setBounds(200, 200, 200, 40);
@@ -259,6 +277,7 @@ public class main  {
 
     
 
+    /*caja de preguntas */
     private void CajaPreguntas(){
         JTextField cajatexto1 = new JTextField();
         panel.add(cajatexto1);
@@ -269,7 +288,10 @@ public class main  {
     }
 
 
-
+/**
+ * main 
+ * @param args
+ */
 public static void main(String[]args){
     new main();
 }

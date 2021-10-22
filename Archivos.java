@@ -6,9 +6,10 @@
  * @author Sebastián Franco 21484
  * @author Juan Miguel González-Campo 21077
  * @author Mario Puente 21290
- * @author Sebastián Reyes 21239
+ * @author Sebastián Reyes 21139
  */
 
+ /*imports */
 import java.util.Scanner;
 
 import javax.swing.*;
@@ -20,6 +21,7 @@ public class Archivos {
    
     JPanel panel = new JPanel();
    
+    /*constructor */
     public void Archivos(){
         
         Titulo();
@@ -28,6 +30,7 @@ public class Archivos {
         linkmult();
         linkdiv();
         
+        /*dar formato a la pantalla */
         JFrame marco = new JFrame();
         panel.setLayout(null);
         panel.setBackground(Color.BLUE);
@@ -41,6 +44,7 @@ public class Archivos {
 
     }
 
+    /*para el titulo */
     public void Titulo(){
         JLabel titulo2 = new JLabel("Archivos del Juego");
         titulo2.setForeground(Color.WHITE);
@@ -49,6 +53,7 @@ public class Archivos {
         panel.add(titulo2);
     }
 
+    /*para el link suma */
     public void linksuma(){
         JLabel titulo3 = new JLabel("Video de Suma: " + " https://www.youtube.com/watch?v=oF-rZLIShC8");
         titulo3.setForeground(Color.WHITE);
@@ -57,6 +62,7 @@ public class Archivos {
         panel.add(titulo3);
     }
 
+    /*link resta */
     public void linkresta(){
         JLabel titulo3 = new JLabel("Video de Resta: " + " https://www.youtube.com/watch?v=Lqf5WmulMYI");
         titulo3.setForeground(Color.WHITE);
@@ -65,6 +71,7 @@ public class Archivos {
         panel.add(titulo3);
     }
 
+    /*link multiplicacion */
     public void linkmult(){
         JLabel titulo3 = new JLabel("Video de Multiplicación: " + " https://www.youtube.com/watch?v=YFtEaVw5k1A");
         titulo3.setForeground(Color.WHITE);
@@ -73,6 +80,7 @@ public class Archivos {
         panel.add(titulo3);
     }
 
+    /*link division */
     public void linkdiv(){
         JLabel titulo3 = new JLabel("Video de División: " + " https://www.youtube.com/watch?v=mQ4wKV9_pZs");
         titulo3.setForeground(Color.WHITE);

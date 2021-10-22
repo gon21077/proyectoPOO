@@ -46,6 +46,7 @@ public class main  {
     JPanel panel = new JPanel();
     JFrame marco = new JFrame();
 
+
     /**
      * 
      */
@@ -134,7 +135,6 @@ public class main  {
                 cajatextor.setText("");;
             }
         });
-        panel.repaint();
     }
 
     /*para las opciones */
@@ -209,6 +209,7 @@ public class main  {
                 if (pregunta.getTipo() == 4){
                     if (res.equals(r1)){
                         panel.removeAll();
+                        panel.repaint();
                         puntaje.setPuntaje(1);
                         preguntasContestadas = preguntasContestadas+1;
                         preguntasNumero = preguntasNumero+1;
@@ -220,14 +221,11 @@ public class main  {
                         BotonEnviar();  
                     } else {/*si la tiene mala  */
                         panel.removeAll();
+                        panel.repaint();
                         vidas = vidas-1;
                         /*si no  */
                         if (vidas < 1){
-                            JLabel GameOver = new JLabel("Perdiste");
-                            GameOver.setBounds(200, 200, 200, 40);
-                            GameOver.setForeground(Color.WHITE);
-                            GameOver.setFont(new Font("Verdana",Font.PLAIN,20));
-                            panel.add(GameOver);
+                            GameOver();
                         } else {
                             BotonHome();
                             BotonOpciones();
@@ -240,6 +238,7 @@ public class main  {
                 } else {
                     if (respuestadada == r){
                         panel.removeAll();
+                        panel.repaint();
                         puntaje.setPuntaje(1);
                         preguntasContestadas = preguntasContestadas+1;
                         preguntasNumero = preguntasNumero+1;
@@ -251,13 +250,10 @@ public class main  {
                         BotonEnviar();
                     } else {
                         panel.removeAll();
+                        panel.repaint();
                         vidas = vidas-1;
                         if (vidas < 1){
-                            JLabel GameOver = new JLabel("Perdiste");
-                            GameOver.setBounds(200, 200, 200, 40);
-                            GameOver.setForeground(Color.WHITE);
-                            GameOver.setFont(new Font("Verdana",Font.PLAIN,20));
-                            panel.add(GameOver);
+                            GameOver();
                         } else {
                             BotonHome();
                             BotonOpciones();
@@ -285,6 +281,14 @@ public class main  {
 
     private JComponent getContentPane() {
         return null;
+    }
+
+    private void GameOver(){
+        JLabel GameOver = new JLabel("Perdiste:( tu puntaje fue de: "+puntaje.getPuntaje());
+        GameOver.setBounds(1, 200, 200, 40);
+        GameOver.setForeground(Color.WHITE);
+        GameOver.setFont(new Font("Verdana",Font.PLAIN,15));
+        panel.add(GameOver);
     }
 
 

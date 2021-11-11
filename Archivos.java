@@ -10,6 +10,7 @@
  */
 
  /*imports */
+import java.io.IOException;
 import java.util.Scanner;
 
 import javax.swing.*;
@@ -109,8 +110,12 @@ public class Archivos {
             public void actionPerformed(ActionEvent e) {
                 i.setVisible(false);
                 String[] arguments = new String[] {};
-                main.main(arguments);
-                
+                try {
+                    main.main(arguments);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+
             } 
         };
         boton1.addActionListener(clickHome);

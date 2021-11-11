@@ -10,13 +10,13 @@
  */
 
  /*imports */
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.PrintWriter;
-import java.util.Objects;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableModel;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -24,7 +24,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.FocusEvent;
-
+import java.util.List;
 
 
 /*clase main */
@@ -42,16 +42,14 @@ public class main  {
     public static preguntas pregunta = null;
     public static Puntaje puntaje = null;
     String filepath = "puntaje.csv";
-
+    List<List<String>> llp = new ArrayList<>();
     JPanel panel = new JPanel();
     JFrame marco = new JFrame();
-
-
     /**
      * 
      */
-    public main(Color color) { ///Constructor
-        
+    public main(Color color) throws IOException { ///Constructor
+
         BotonHome();
         BotonOpciones();
         BotonArchivos();
@@ -76,6 +74,30 @@ public class main  {
         
     }
 
+    /*
+    metodo para ordenar el leaderboard
+     */
+    public void csvCompare() throws IOException {
+        String line = "";
+        String csvSplitter = ",";
+
+        try (BufferedReader br = new BufferedReader(new FileReader(filepath))) {
+            while ((line = br.readLine()) != null) {
+                llp.add(Arrays.asList(line.split(csvSplitter)));
+            }
+            llp.sort(new Comparator<List<String>>() {
+                @Override
+                public int compare(List<String> o1, List<String> o2) {
+                    return o1.get(1).compareTo(o2.get(1));
+                }
+            });
+            Collections.reverse(llp);
+            System.out.println(llp);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     /*es el boton home */
     private void BotonHome(){
         JButton boton1 = new JButton("Home");
@@ -96,8 +118,12 @@ public class main  {
                 } catch(Exception E){
                     System.out.println("Ocurrio un error al guardar el puntaje.");
                 }
-                new main(Color.BLUE);
-                
+                try {
+                    new main(Color.BLUE);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+
             } 
         }; 
 
@@ -194,8 +220,10 @@ public class main  {
     }        
 
     /*boton para los niveles */
-    private void BotonNiveles(){
-        JButton boton4 = new JButton("Niveles");
+    private void BotonNiveles() throws IOException {
+        csvCompare();
+        String[] header = {"Nombre","Puntuacion"};
+        JButton boton4 = new JButton("Puntuaciones");
         JLabel titulo = new JLabel("Bienvenido al juego");
         titulo.setForeground(Color.WHITE);
         titulo.setFont(new Font("cooper black",3,20));
@@ -203,6 +231,49 @@ public class main  {
         boton4.setBounds(350, 30, 100, 40);
         panel.add(boton4);
         panel.add(titulo);
+
+        ActionListener clickNiveles = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                panel.removeAll();
+                panel.repaint();
+                JButton home = new JButton("Home");
+                ActionListener clickHome = new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        marco.setVisible(false);
+                        String[] arguments = new String[] {};
+                        try {
+                            main.main(arguments);
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
+                    }
+                };
+                marco.setLayout(new BorderLayout());
+                panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+                marco.setSize(500,200);
+                marco.setLocationRelativeTo(null);
+                marco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                marco.setVisible(true);
+                JTable table = new JTable();
+                table.setModel(new ListTableModel<>(llp));
+                for(int i=0;i<table.getColumnCount();i++)
+                {
+                    TableColumn column1 = table.getTableHeader().getColumnModel().getColumn(i);
+
+                    column1.setHeaderValue(header[i]);
+                }
+                home.addActionListener(clickHome);
+                panel.add(new JScrollPane(table));
+                marco.add(panel,BorderLayout.CENTER);
+                marco.add(home,BorderLayout.SOUTH);
+
+            }
+        };
+
+        boton4.addActionListener(clickNiveles);
+
     }
 
     /*boton para enviar respuestas */
@@ -237,7 +308,11 @@ public class main  {
                         BotonHome();
                         BotonOpciones();
                         BotonArchivos();
-                        BotonNiveles();
+                        try {
+                            BotonNiveles();
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
                         CajasTexto();
                         BotonEnviar();  
                     } else {/*si la tiene mala  */
@@ -253,7 +328,11 @@ public class main  {
                             BotonHome();
                             BotonOpciones();
                             BotonArchivos();
-                            BotonNiveles();
+                            try {
+                                BotonNiveles();
+                            } catch (IOException ex) {
+                                ex.printStackTrace();
+                            }
                             CajasTexto();
                             BotonEnviar();
                         }
@@ -269,7 +348,11 @@ public class main  {
                         BotonHome();
                         BotonOpciones();
                         BotonArchivos();
-                        BotonNiveles();
+                        try {
+                            BotonNiveles();
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
                         CajasTexto();
                         BotonEnviar();
                     } else {
@@ -284,7 +367,11 @@ public class main  {
                             BotonHome();
                             BotonOpciones();
                             BotonArchivos();
-                            BotonNiveles();
+                            try {
+                                BotonNiveles();
+                            } catch (IOException ex) {
+                                ex.printStackTrace();
+                            }
                             CajasTexto();
                             BotonEnviar();
                         }
@@ -335,7 +422,7 @@ public class main  {
  * main 
  * @param args
  */
-public static void main(String[]args){
+public static void main(String[]args) throws IOException {
     new main(Opciones.getColor());
     }
 }

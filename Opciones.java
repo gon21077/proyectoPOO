@@ -14,6 +14,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 /*Esta es la clase opciones, se cambia el color del fondo */
 public class Opciones {
@@ -139,8 +140,12 @@ public class Opciones {
             public void actionPerformed(ActionEvent e) {
                 i.setVisible(false);
                 String[] arguments = new String[] {};
-                main.main(arguments);
-                
+                try {
+                    main.main(arguments);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+
             } 
         };
         boton1.addActionListener(clickHome);

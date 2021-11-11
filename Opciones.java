@@ -17,43 +17,45 @@ import java.awt.event.ActionListener;
 
 /*Esta es la clase opciones, se cambia el color del fondo */
 public class Opciones {
+    private static Color color = Color.BLUE;
 
-    /*Instanciar un nuevo panel  */
-    JPanel panel = new JPanel();
 
     /*constructor */
-    public void Opciones() {
+    public void Opciones(JPanel j, JFrame i) {
+        j.removeAll();
+        j.repaint();
         /**Se llaman los métodos */
-        titulo();
-        BotonRojo();
-        BotonVerde();
-        BotonRosado();
+        titulo(j);
+        BotonHome(j, i);
+        BotonRojo(j, i);
+        BotonVerde(j);
+        BotonRosado(j);
+        BotonAzul(j);
         /*se instancia un nuevo marco */
-        JFrame marco = new JFrame();
         /*se da formato a la pagina */
-        panel.setLayout(null);
-        panel.setBackground(Color.BLUE);
-        marco.add(panel);
-        marco.setTitle("Opciones de juego");
-        marco.setSize(500, 500);
-        marco.setResizable(true);
-        marco.setLocationRelativeTo(null);
-        marco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        marco.setVisible(true);
+        j.setLayout(null);
+        j.setBackground(Color.BLUE);
+        i.add(j);
+        i.setTitle("Opciones de juego");
+        i.setSize(500, 500);
+        i.setResizable(true);
+        i.setLocationRelativeTo(null);
+        i.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        i.setVisible(true);
     }
     /*Metodo para cambiar fondo a rojo */
-    public void BotonRojo(){
+    public void BotonRojo(JPanel j, JFrame i){
         JButton boton1 = new JButton("Rojo");
-        boton1.setBounds(100, 70, 100, 40);
-        panel.add(boton1);
-        JFrame marco = new JFrame();
+        boton1.setBounds(50, 110, 100, 40);
+        j.add(boton1);
+        
         
         ActionListener click = new ActionListener(){
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                panel.setBackground(Color.RED);
-                
+                j.setBackground(Color.RED);
+                color = Color.RED;
             }
             
         };
@@ -62,18 +64,17 @@ public class Opciones {
     }
 
     /*metodo para cambiar fondo a verde */
-    public void BotonVerde() {
+    public void BotonVerde(JPanel j) {
         JButton boton2 = new JButton("Verde");
-        boton2.setBounds(200, 70, 100, 40);
-        panel.add(boton2);
-        JFrame marco = new JFrame();
+        boton2.setBounds(150, 110, 100, 40);
+        j.add(boton2);
         
         ActionListener click = new ActionListener(){
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                panel.setBackground(Color.GREEN);
-                
+                j.setBackground(Color.GREEN);
+                color = Color.GREEN;
             }
             
         };
@@ -83,17 +84,35 @@ public class Opciones {
     }
 
     /*metodo para fondo rosado */
-    public void BotonRosado() {
+    public void BotonRosado(JPanel j) {
         JButton boton3 = new JButton("Rosado");
-        boton3.setBounds(300, 70, 100, 40);
-        panel.add(boton3);
-        JFrame marco = new JFrame();
+        boton3.setBounds(250, 110, 100, 40);
+        j.add(boton3);
         
         ActionListener click = new ActionListener(){
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                panel.setBackground(Color.PINK);
+                j.setBackground(Color.PINK);
+                color = Color.PINK;
+                
+            }
+            
+        };
+        /*al dar click se ejecuta */
+        boton3.addActionListener(click);
+    }
+    public void BotonAzul(JPanel j) {
+        JButton boton3 = new JButton("Azul");
+        boton3.setBounds(350, 110, 100, 40);
+        j.add(boton3);
+        
+        ActionListener click = new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                j.setBackground(Color.BLUE);
+                color = Color.BLUE;
                 
             }
             
@@ -102,11 +121,31 @@ public class Opciones {
         boton3.addActionListener(click);
     }
     
-    public void titulo() {
+    public void titulo(JPanel j) {
         JLabel titulo1 = new JLabel("Opciones de juego");
         titulo1.setForeground(Color.WHITE);
-        titulo1.setBounds(5, 0, 300, 80);
+        titulo1.setBounds(5, 50, 300, 80);
         titulo1.setFont(new Font("cooper black",3,20));
-        panel.add(titulo1);
+        j.add(titulo1);
+    }
+    public void BotonHome(JPanel j, JFrame i){
+    
+        JButton boton1 = new JButton("Home");
+        boton1.setBounds(50, 30, 100, 40);
+        j.add(boton1);
+        
+        ActionListener clickHome = new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                i.setVisible(false);
+                String[] arguments = new String[] {};
+                main.main(arguments);
+                
+            } 
+        };
+        boton1.addActionListener(clickHome);
+    }
+    public static Color getColor() {
+        return color;
     }
 }

@@ -30,7 +30,6 @@ import java.awt.event.FocusEvent;
 /*clase main */
 public class main  {
 
-    
     public static Archivos Archivos = null;
     public int r = 0;
     public String p = "";
@@ -51,7 +50,7 @@ public class main  {
     /**
      * 
      */
-    public main() { ///Constructor
+    public main(Color color) { ///Constructor
         
         BotonHome();
         BotonOpciones();
@@ -65,7 +64,7 @@ public class main  {
         
         marco = new JFrame();
         panel.setLayout(null);
-        panel.setBackground(Color.BLUE);
+        panel.setBackground(color);
         marco.add(panel);
         marco.setTitle("Juego de las Matematicas");
         marco.setSize(500, 500);
@@ -97,7 +96,7 @@ public class main  {
                 } catch(Exception E){
                     System.out.println("Ocurrio un error al guardar el puntaje.");
                 }
-                new main();
+                new main(Color.BLUE);
                 
             } 
         }; 
@@ -167,7 +166,7 @@ public class main  {
             Opciones opciones = new Opciones();
             @Override
             public void actionPerformed(ActionEvent e) {
-                opciones.Opciones();
+                opciones.Opciones(panel, marco);
                 
             }
         };
@@ -186,7 +185,7 @@ public class main  {
             Archivos Archivos = new Archivos();
             @Override
             public void actionPerformed(ActionEvent e) {
-                Archivos.Archivos();
+                Archivos.Archivos(panel, marco);
                 
             }
         };
@@ -333,6 +332,6 @@ public class main  {
  * @param args
  */
 public static void main(String[]args){
-    new main();
+    new main(Opciones.getColor());
     }
 }

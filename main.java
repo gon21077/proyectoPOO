@@ -227,6 +227,7 @@ public class main  {
                 }
                 if (pregunta.getTipo() == 4){
                     if (res.equals(r1)){
+                        JOptionPane.showMessageDialog(null, "¡Respuesta Correcta!", ".", JOptionPane.INFORMATION_MESSAGE);
                         String nombre = cajanombre.getText();
                         panel.removeAll();
                         panel.repaint();
@@ -240,6 +241,7 @@ public class main  {
                         CajasTexto();
                         BotonEnviar();  
                     } else {/*si la tiene mala  */
+                        JOptionPane.showMessageDialog(null, "Respuesta Incorrecta", ".", JOptionPane.INFORMATION_MESSAGE);
                         panel.removeAll();
                         panel.repaint();
                         vidas = vidas-1;
@@ -258,6 +260,7 @@ public class main  {
                     }
                 } else {
                     if (respuestadada == r){
+                        JOptionPane.showMessageDialog(null, "¡Respuesta Correcta!", ".", JOptionPane.INFORMATION_MESSAGE);
                         panel.removeAll();
                         panel.repaint();
                         puntaje.setPuntaje(1);
@@ -270,6 +273,7 @@ public class main  {
                         CajasTexto();
                         BotonEnviar();
                     } else {
+                        JOptionPane.showMessageDialog(null, "Respuesta Incorrecta", ".", JOptionPane.INFORMATION_MESSAGE);
                         panel.removeAll();
                         panel.repaint();
                         vidas = vidas-1;

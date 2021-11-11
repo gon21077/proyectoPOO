@@ -243,7 +243,12 @@ public class Archivos {
             public void actionPerformed(ActionEvent e) {
                 i.setVisible(false);
                 String[] arguments = new String[] {};
-                main.main(arguments);
+                try {
+                    main.main(arguments);
+                } catch (IOException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
                 
             } 
         };

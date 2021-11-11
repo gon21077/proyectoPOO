@@ -10,21 +10,31 @@
  */
 
  /*imports */
-import java.io.IOException;
-import java.util.Scanner;
+
 
 import javax.swing.*;
+
+import javax.swing.event.MouseInputAdapter;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
+
+import java.net.URISyntaxException;
+
+
 import java.awt.event.MouseEvent;
-import java.awt.event.WindowEvent;
+import java.io.IOException;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+import java.net.*;
+
 
 /*Esta es la clase de archivos, aqui están los ll¡inks para tutoriales*/
 public class Archivos {
-   
+
    
     /*constructor */
     public void Archivos(JPanel j, JFrame i){
@@ -37,9 +47,13 @@ public class Archivos {
         
         Titulo(j);
         linksuma(j);
+        hSuma(j);
         linkresta(j);
+        hResta(j);
         linkmult(j);
+        hMult(j);
         linkdiv(j);
+        hDiv(j);
         BotonHome(j, i);
         
         /*dar formato a la pantalla */
@@ -66,39 +80,158 @@ public class Archivos {
 
     /*para el link suma */
     public void linksuma(JPanel j){
-        JLabel titulo3 = new JLabel("Video de Suma: " + " https://www.youtube.com/watch?v=oF-rZLIShC8");
+        JLabel titulo3 = new JLabel("Video de Suma: ");
         titulo3.setForeground(Color.WHITE);
         titulo3.setBounds(5, 80, 500, 80);
         titulo3.setFont(new Font("cooper black",3,13));
         j.add(titulo3);
     }
 
-    /*link resta */
-    public void linkresta(JPanel j){
-        JLabel titulo3 = new JLabel("Video de Resta: " + " https://www.youtube.com/watch?v=Lqf5WmulMYI");
-        titulo3.setForeground(Color.WHITE);
-        titulo3.setBounds(5, 110, 500, 80);
+    public void hSuma(JPanel j){
+        JLabel titulo3 = new JLabel("https://www.youtube.com/watch?v=oF-rZLIShC8");
+        titulo3.setForeground(Color.BLUE.darker());
+        titulo3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        titulo3.addMouseListener(new MouseInputAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                try { 
+                    Desktop.getDesktop().browse(new URI("https://www.youtube.com/watch?v=oF-rZLIShC8"));
+                } catch (URISyntaxException | IOException i) {
+                    i.printStackTrace();
+                }
+            }
+         
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                // the mouse has entered the label
+            }
+         
+            @Override
+            public void mouseExited(MouseEvent e) {
+                // the mouse left the label
+            }
+        });
+        titulo3.setBounds(120, 80, 500, 80);
         titulo3.setFont(new Font("cooper black",3,13));
         j.add(titulo3);
+    }
+    
+
+    /*link resta */
+    public void linkresta(JPanel j){
+        JLabel titulo3 = new JLabel("Video de Resta: ");
+        titulo3.setBounds(5, 160, 500, 80);
+        titulo3.setFont(new Font("White",3,13));
+        j.add(titulo3);
+    }
+
+    public void hResta(JPanel j){
+        JLabel titulo4 = new JLabel("https://www.youtube.com/watch?v=Lqf5WmulMYI");
+        titulo4.setForeground(Color.BLUE.darker());
+        titulo4.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        titulo4.addMouseListener(new MouseInputAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                try { 
+                    Desktop.getDesktop().browse(new URI("https://www.youtube.com/watch?v=Lqf5WmulMYI"));
+                } catch (URISyntaxException | IOException i) {
+                    i.printStackTrace();
+                }
+            }
+         
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                // the mouse has entered the label
+            }
+         
+            @Override
+            public void mouseExited(MouseEvent e) {
+                // the mouse left the label
+            }
+        });
+        titulo4.setBounds(120, 160, 500, 80);
+        titulo4.setFont(new Font("cooper black",3,13));
+        j.add(titulo4);
     }
 
     /*link multiplicacion */
     public void linkmult(JPanel j){
-        JLabel titulo3 = new JLabel("Video de Multiplicación: " + " https://www.youtube.com/watch?v=YFtEaVw5k1A");
+        JLabel titulo3 = new JLabel("Video de Multiplicación: ");
         titulo3.setForeground(Color.WHITE);
-        titulo3.setBounds(5, 140, 500, 80);
+        titulo3.setBounds(5, 240, 500, 80);
         titulo3.setFont(new Font("cooper black",3,13));
         j.add(titulo3);
     }
 
+    public void hMult(JPanel j){
+        JLabel titulo3 = new JLabel("https://www.youtube.com/watch?v=YFtEaVw5k1A");
+        titulo3.setForeground(Color.BLUE.darker());
+        titulo3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        titulo3.addMouseListener(new MouseInputAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                try { 
+                    Desktop.getDesktop().browse(new URI("https://www.youtube.com/watch?v=YFtEaVw5k1A"));
+                } catch (URISyntaxException | IOException i) {
+                    i.printStackTrace();
+                }
+            }
+         
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                // the mouse has entered the label
+            }
+         
+            @Override
+            public void mouseExited(MouseEvent e) {
+                // the mouse left the label
+            }
+        });
+        titulo3.setBounds(140, 270, 500, 80);
+        titulo3.setFont(new Font("cooper black",3,13));
+        j.add(titulo3);
+    
+    }
+
     /*link division */
     public void linkdiv(JPanel j){
-        JLabel titulo3 = new JLabel("Video de División: " + " https://www.youtube.com/watch?v=mQ4wKV9_pZs");
+        JLabel titulo3 = new JLabel("Video de División: ");
         titulo3.setForeground(Color.WHITE);
-        titulo3.setBounds(5, 170, 500, 80);
+        titulo3.setBounds(5, 320, 500, 80);
         titulo3.setFont(new Font("cooper black",3,13));
         j.add(titulo3);
     }
+
+    public void hDiv(JPanel j){
+        JLabel titulo3 = new JLabel("https://www.youtube.com/watch?v=mQ4wKV9_pZs");
+        titulo3.setForeground(Color.BLUE.darker());
+        titulo3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        titulo3.addMouseListener(new MouseInputAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                try { 
+                    Desktop.getDesktop().browse(new URI("https://www.youtube.com/watch?v=mQ4wKV9_pZs"));
+                } catch (URISyntaxException | IOException i) {
+                    i.printStackTrace();
+                }
+            }
+         
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                // the mouse has entered the label
+            }
+         
+            @Override
+            public void mouseExited(MouseEvent e) {
+                // the mouse left the label
+            }
+        });
+        titulo3.setBounds(140, 320, 500, 80);
+        titulo3.setFont(new Font("cooper black",3,13));
+        j.add(titulo3);
+    
+    }
+
     public void BotonHome(JPanel j, JFrame i){
     
         JButton boton1 = new JButton("Home");
@@ -110,16 +243,30 @@ public class Archivos {
             public void actionPerformed(ActionEvent e) {
                 i.setVisible(false);
                 String[] arguments = new String[] {};
-                try {
-                    main.main(arguments);
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-
+                main.main(arguments);
+                
             } 
         };
         boton1.addActionListener(clickHome);
     }
 
-    
+    public void jLabelSuma(java.awt.event.MouseEvent evt){
+        
+
+        /**
+         * try {
+            if (Desktop.isDesktopSupported()){
+                Desktop desktop = Desktop.getDesktop();
+                if (desktop.isDesktopSupported(Desktop.Action.BROWSE)){
+                    desktop.browse(new URI("https://www.youtube.com/watch?v=oF-rZLIShC8"));
+                }
+            }
+        }
+        */
     }
+
+    
+}
+
+
+

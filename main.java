@@ -26,7 +26,14 @@ import java.awt.event.MouseEvent;
 import java.awt.event.FocusEvent;
 import java.util.List;
 
-
+//imports utilizados para metodo no terminado 
+//import javax.sound.sampled.AudioInputStream;
+//import javax.sound.sampled.AudioSystem;
+//import javax.sound.sampled.Mixer;
+//import javax.sound.sampled.UnsupportedAudioFileException;
+//import javax.sound.sampled.DataLine;
+//import javax.sound.sampled.LineUnavailableException;
+//import javax.sound.sampled.Clip;
 /*clase main */
 public class main  {
 
@@ -41,6 +48,9 @@ public class main  {
     public JTextField cajanombre = null;
     public static preguntas pregunta = null;
     public static Puntaje puntaje = null;
+    //public static Mixer mixer;
+    //public static Clip clip;
+
     String filepath = "puntaje.csv";
     List<List<String>> llp = new ArrayList<>();
     JPanel panel = new JPanel();
@@ -420,12 +430,54 @@ public class main  {
         panel.add(GameOver);
     }
 
+//metodo para la ultima entrega 
+    //public static void music() {
+    //    Mixer.Info[] mInfos = AudioSystem.getMixerInfo();
+//
+    //    mixer = AudioSystem.getMixer(mInfos[0]);
+//
+    //    DataLine.Info datainfo = new DataLine.Info(Clip.class, null);
+    //    try {
+    //        clip = (Clip)mixer.getLine(datainfo);
+    //    }
+    //    catch (LineUnavailableException lue){
+    //        lue.printStackTrace();
+    //    }
+//
+    //    try {
+    //        URL soundURL = main.class.getResource("/littleidea.wav");
+    //        AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundURL);
+    //        clip.open(audioStream);
+    //    }
+    //    catch(LineUnavailableException lue) {
+    //        lue.printStackTrace();
+    //    }
+    //    catch(UnsupportedAudioFileException uafe) {
+    //        uafe.printStackTrace();
+    //    }
+    //    catch(IOException ioe) {
+    //        ioe.printStackTrace();
+    //    }
+//
+    //    clip.start();
+//
+    //    do {
+    //        try {
+    //            Thread.sleep(50);
+    //        }
+    //        catch(InterruptedException ie) {
+    //            ie.printStackTrace();
+    //        }
+    //     } while(clip.isActive());
+//
+    //}
 
 /**
  * main 
  * @param args
  */
 public static void main(String[]args) throws IOException {
+    //music();
     new main(Opciones.getColor());
     }
 }

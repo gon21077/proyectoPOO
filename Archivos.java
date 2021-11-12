@@ -46,13 +46,13 @@ public class Archivos {
         j.repaint();
         
         Titulo(j);
-        linksuma(j);
+
         hSuma(j);
-        linkresta(j);
+
         hResta(j);
-        linkmult(j);
+
         hMult(j);
-        linkdiv(j);
+
         hDiv(j);
         BotonHome(j, i);
         
@@ -71,14 +71,14 @@ public class Archivos {
 
     /*para el titulo */
     public void Titulo(JPanel j){
-        JLabel titulo2 = new JLabel("Archivos del Juego");
+        JLabel titulo2 = new JLabel("Recursos de aprendizaje:");
         titulo2.setForeground(Color.WHITE);
-        titulo2.setBounds(5, 50, 300, 80);
-        titulo2.setFont(new Font("cooper black",3,20));
+        titulo2.setBounds(120, 50, 300, 80);
+        titulo2.setFont(new Font("Cooper Black",Font.PLAIN,20));
         j.add(titulo2);
     }
 
-    /*para el link suma */
+    /*para el link suma 
     public void linksuma(JPanel j){
         JLabel titulo3 = new JLabel("Video de Suma: ");
         titulo3.setForeground(Color.WHITE);
@@ -86,10 +86,10 @@ public class Archivos {
         titulo3.setFont(new Font("cooper black",3,13));
         j.add(titulo3);
     }
-
+    */
     public void hSuma(JPanel j){
-        JLabel titulo3 = new JLabel("https://www.youtube.com/watch?v=oF-rZLIShC8");
-        titulo3.setForeground(Color.BLUE.darker());
+        JLabel titulo3 = new JLabel("Clickea para ver un video de Suma");
+        titulo3.setForeground(Color.WHITE);
         titulo3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         titulo3.addMouseListener(new MouseInputAdapter() {
             @Override
@@ -111,23 +111,23 @@ public class Archivos {
                 // the mouse left the label
             }
         });
-        titulo3.setBounds(120, 80, 500, 80);
-        titulo3.setFont(new Font("cooper black",3,13));
+        titulo3.setBounds(120, 100, 500, 80);
+        titulo3.setFont(new Font("Verdana",Font.PLAIN,13));
         j.add(titulo3);
     }
     
 
-    /*link resta */
+    /*link resta 
     public void linkresta(JPanel j){
         JLabel titulo3 = new JLabel("Video de Resta: ");
         titulo3.setBounds(5, 160, 500, 80);
         titulo3.setFont(new Font("White",3,13));
         j.add(titulo3);
     }
-
+    */
     public void hResta(JPanel j){
-        JLabel titulo4 = new JLabel("https://www.youtube.com/watch?v=Lqf5WmulMYI");
-        titulo4.setForeground(Color.BLUE.darker());
+        JLabel titulo4 = new JLabel("Clickea para ver un video de Resta");
+        titulo4.setForeground(Color.WHITE);
         titulo4.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         titulo4.addMouseListener(new MouseInputAdapter() {
             @Override
@@ -150,11 +150,11 @@ public class Archivos {
             }
         });
         titulo4.setBounds(120, 160, 500, 80);
-        titulo4.setFont(new Font("cooper black",3,13));
+        titulo4.setFont(new Font("Verdana",Font.PLAIN,13));
         j.add(titulo4);
     }
 
-    /*link multiplicacion */
+    /*link multiplicacion 
     public void linkmult(JPanel j){
         JLabel titulo3 = new JLabel("Video de Multiplicación: ");
         titulo3.setForeground(Color.WHITE);
@@ -162,10 +162,10 @@ public class Archivos {
         titulo3.setFont(new Font("cooper black",3,13));
         j.add(titulo3);
     }
-
+    */
     public void hMult(JPanel j){
-        JLabel titulo3 = new JLabel("https://www.youtube.com/watch?v=YFtEaVw5k1A");
-        titulo3.setForeground(Color.BLUE.darker());
+        JLabel titulo3 = new JLabel("Clickea para ver un video de Multiplicación");
+        titulo3.setForeground(Color.WHITE);
         titulo3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         titulo3.addMouseListener(new MouseInputAdapter() {
             @Override
@@ -187,13 +187,13 @@ public class Archivos {
                 // the mouse left the label
             }
         });
-        titulo3.setBounds(140, 270, 500, 80);
-        titulo3.setFont(new Font("cooper black",3,13));
+        titulo3.setBounds(120, 220, 500, 80);
+        titulo3.setFont(new Font("Verdana",Font.PLAIN,13));
         j.add(titulo3);
     
     }
 
-    /*link division */
+    /*link division 
     public void linkdiv(JPanel j){
         JLabel titulo3 = new JLabel("Video de División: ");
         titulo3.setForeground(Color.WHITE);
@@ -201,10 +201,10 @@ public class Archivos {
         titulo3.setFont(new Font("cooper black",3,13));
         j.add(titulo3);
     }
-
+    */
     public void hDiv(JPanel j){
-        JLabel titulo3 = new JLabel("https://www.youtube.com/watch?v=mQ4wKV9_pZs");
-        titulo3.setForeground(Color.BLUE.darker());
+        JLabel titulo3 = new JLabel("Clickea para ver un video de División");
+        titulo3.setForeground(Color.WHITE);
         titulo3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         titulo3.addMouseListener(new MouseInputAdapter() {
             @Override
@@ -226,8 +226,8 @@ public class Archivos {
                 // the mouse left the label
             }
         });
-        titulo3.setBounds(140, 320, 500, 80);
-        titulo3.setFont(new Font("cooper black",3,13));
+        titulo3.setBounds(120, 280, 500, 80);
+        titulo3.setFont(new Font("Verdana",Font.PLAIN,13));
         j.add(titulo3);
     
     }

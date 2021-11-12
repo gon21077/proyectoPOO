@@ -202,7 +202,7 @@ public class main  {
     /*boton para los archivos */
     private void BotonArchivos(){
         
-        JButton boton3 = new JButton("Archivos");
+        JButton boton3 = new JButton("Recursos");
         boton3.setBounds(250, 30, 100, 40);
         panel.add(boton3);
 
@@ -223,7 +223,7 @@ public class main  {
     private void BotonNiveles() throws IOException {
         csvCompare();
         String[] header = {"Nombre","Puntuacion"};
-        JButton boton4 = new JButton("Puntuaciones");
+        JButton boton4 = new JButton("Puntajes");
         JLabel titulo = new JLabel("Bienvenido al juego");
         titulo.setForeground(Color.WHITE);
         titulo.setFont(new Font("cooper black",3,20));

@@ -8,12 +8,15 @@
  * @author Mario Puente 21290
  * @author Sebastián Reyes 21239
  */
+
+ /**imports */
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 import java.text.DecimalFormat;
 
+/*esta es la clase de preguntas */
 public class preguntas {
     int RespuestaC;
     int Respuesta;
@@ -32,20 +35,26 @@ public class preguntas {
         tipo = random.nextInt(4)+1;
     }
 
+    /**
+     * convertir a string la suma
+     * @return p1
+     */
     public String Suma(){
         String p1 = Integer.toString(primerN) +" + "+ Integer.toString(SegundoN);
         return p1;
     }
 
     /**
-     * @return
+     * COnvertir a string la resta
+     * @return p1
      */
     public String Resta(){
         String p1 = Integer.toString(primerN) +" - "+ Integer.toString(SegundoN);
         return p1;
     }
     /**
-     * @return
+     * convertir a string la multiplicacion
+     * @return p1
      */
     public String Multiplicacion(){
         String p1 = Integer.toString(primerN) +" * "+ Integer.toString(SegundoN);
@@ -82,6 +91,10 @@ public class preguntas {
         return tipo;
     }
     
+    /**
+     * verificar respuestas
+     * @return respuestaC
+     */
     public int Respuesta(){
         if (tipo==1){
             RespuestaC = primerN + SegundoN;
@@ -92,6 +105,9 @@ public class preguntas {
         } 
         return RespuestaC;
     }
+    /*preguntas para division 
+     * @return respuestanueva
+     */
     public String RespuestaDiv(){  
             Double primerN1 = Double.valueOf(primerN);
             Double SegundoN2 = Double.valueOf(SegundoN);

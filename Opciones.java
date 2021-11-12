@@ -103,6 +103,10 @@ public class Opciones {
         /*al dar click se ejecuta */
         boton3.addActionListener(click);
     }
+    /**
+     * para cambiar a azul el fondo
+     * @param j
+     */
     public void BotonAzul(JPanel j) {
         JButton boton3 = new JButton("Azul");
         boton3.setBounds(350, 110, 100, 40);
@@ -122,6 +126,10 @@ public class Opciones {
         boton3.addActionListener(click);
     }
     
+    /**
+     * el titulo de la pantalla
+     * @param j
+     */
     public void titulo(JPanel j) {
         JLabel titulo1 = new JLabel("Opciones de juego");
         titulo1.setForeground(Color.WHITE);
@@ -129,6 +137,12 @@ public class Opciones {
         titulo1.setFont(new Font("cooper black",3,20));
         j.add(titulo1);
     }
+
+    /**
+     * agregar boton para regresar a home
+     * @param j
+     * @param i
+     */
     public void BotonHome(JPanel j, JFrame i){
     
         JButton boton1 = new JButton("Home");
@@ -150,6 +164,10 @@ public class Opciones {
         };
         boton1.addActionListener(clickHome);
     }
+    /**
+     * para el color
+     * @return color
+     */
     public static Color getColor() {
         return color;
     }

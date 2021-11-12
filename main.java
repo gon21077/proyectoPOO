@@ -49,7 +49,7 @@ public class main  {
      * 
      */
     public main(Color color) throws IOException { ///Constructor
-
+        /*botones */
         BotonHome();
         BotonOpciones();
         BotonArchivos();
@@ -60,6 +60,7 @@ public class main  {
         System.out.println(r);
         puntaje = new Puntaje();
         
+        /*para el frame */
         marco = new JFrame();
         panel.setLayout(null);
         panel.setBackground(color);
@@ -81,6 +82,7 @@ public class main  {
         String line = "";
         String csvSplitter = ",";
 
+        /*para los try and catch  */
         try (BufferedReader br = new BufferedReader(new FileReader(filepath))) {
             while ((line = br.readLine()) != null) {
                 llp.add(Arrays.asList(line.split(csvSplitter)));
@@ -107,6 +109,7 @@ public class main  {
         ActionListener clickHome = new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
+                /*try catch por si hay error  */
                 try{
                     String nombre = cajanombre.getText();
                     FileWriter fw = new FileWriter(filepath,true);

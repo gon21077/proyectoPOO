@@ -132,7 +132,8 @@ public class main  {
                     System.out.println("Ocurrio un error al guardar el puntaje.");
                 }
                 try {
-                    new main(Color.BLUE);
+                    marco.setVisible(false);
+                    new main(Opciones.getColor());
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }

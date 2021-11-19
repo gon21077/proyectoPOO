@@ -35,7 +35,6 @@ public class Opciones {
         /*se instancia un nuevo marco */
         /*se da formato a la pagina */
         j.setLayout(null);
-        j.setBackground(Color.BLUE);
         i.add(j);
         i.setTitle("Opciones de juego");
         i.setSize(500, 500);

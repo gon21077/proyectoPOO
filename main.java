@@ -12,28 +12,19 @@
  /*imports */
 import java.io.*;
 import java.util.*;
+import javax.sound.sampled.*;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
-import javax.swing.table.TableModel;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.FocusEvent;
 import java.util.List;
 
-//imports utilizados para metodo no terminado 
-//import javax.sound.sampled.AudioInputStream;
-//import javax.sound.sampled.AudioSystem;
-//import javax.sound.sampled.Mixer;
-//import javax.sound.sampled.UnsupportedAudioFileException;
-//import javax.sound.sampled.DataLine;
-//import javax.sound.sampled.LineUnavailableException;
-//import javax.sound.sampled.Clip;
+
 /*clase main */
 public class main  {
 
@@ -48,6 +39,7 @@ public class main  {
     public JTextField cajanombre = null;
     public static preguntas pregunta = null;
     public static Puntaje puntaje = null;
+    SimpleAudioPlayer audioPlayer;
     //public static Mixer mixer;
     //public static Clip clip;
 
@@ -56,9 +48,11 @@ public class main  {
     JPanel panel = new JPanel();
     JFrame marco = new JFrame();
     /**
+     * @throws LineUnavailableException
+     * @throws UnsupportedAudioFileException
      * 
      */
-    public main(Color color) throws IOException { ///Constructor
+    public main(Color color) throws IOException, UnsupportedAudioFileException, LineUnavailableException { ///Constructor
         /*botones */
         BotonHome();
         BotonOpciones();
@@ -69,6 +63,7 @@ public class main  {
         System.out.println(r1);
         System.out.println(r);
         puntaje = new Puntaje();
+        music();
         
         /*para el frame */
         marco = new JFrame();
@@ -84,7 +79,11 @@ public class main  {
         
         
     }
-
+    /*Metodo para reproducir musica */
+    public void music() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
+        audioPlayer =  new SimpleAudioPlayer();
+        audioPlayer.play();
+    }
     /*
     metodo para ordenar el leaderboard
      */
@@ -134,7 +133,7 @@ public class main  {
                 try {
                     marco.setVisible(false);
                     new main(Opciones.getColor());
-                } catch (IOException ex) {
+                } catch (Exception ex) {
                     ex.printStackTrace();
                 }
 
@@ -206,7 +205,7 @@ public class main  {
             Opciones opciones = new Opciones();
             @Override
             public void actionPerformed(ActionEvent e) {
-                opciones.Opciones(panel, marco);
+                opciones.Opciones(panel, marco, audioPlayer);
                 
             }
         };
@@ -225,7 +224,7 @@ public class main  {
             Archivos Archivos = new Archivos();
             @Override
             public void actionPerformed(ActionEvent e) {
-                Archivos.Archivos(panel, marco);
+                Archivos.Archivos(panel, marco, audioPlayer);
                 
             }
         };
@@ -256,10 +255,11 @@ public class main  {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         marco.setVisible(false);
+                        audioPlayer.stop();
                         String[] arguments = new String[] {};
                         try {
                             main.main(arguments);
-                        } catch (IOException ex) {
+                        } catch (Exception ex) {
                             ex.printStackTrace();
                         }
                     }
@@ -431,53 +431,11 @@ public class main  {
         panel.add(GameOver);
     }
 
-//metodo para la ultima entrega 
-    //public static void music() {
-    //    Mixer.Info[] mInfos = AudioSystem.getMixerInfo();
-//
-    //    mixer = AudioSystem.getMixer(mInfos[0]);
-//
-    //    DataLine.Info datainfo = new DataLine.Info(Clip.class, null);
-    //    try {
-    //        clip = (Clip)mixer.getLine(datainfo);
-    //    }
-    //    catch (LineUnavailableException lue){
-    //        lue.printStackTrace();
-    //    }
-//
-    //    try {
-    //        URL soundURL = main.class.getResource("/littleidea.wav");
-    //        AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundURL);
-    //        clip.open(audioStream);
-    //    }
-    //    catch(LineUnavailableException lue) {
-    //        lue.printStackTrace();
-    //    }
-    //    catch(UnsupportedAudioFileException uafe) {
-    //        uafe.printStackTrace();
-    //    }
-    //    catch(IOException ioe) {
-    //        ioe.printStackTrace();
-    //    }
-//
-    //    clip.start();
-//
-    //    do {
-    //        try {
-    //            Thread.sleep(50);
-    //        }
-    //        catch(InterruptedException ie) {
-    //            ie.printStackTrace();
-    //        }
-    //     } while(clip.isActive());
-//
-    //}
-
 /**
  * main 
  * @param args
  */
-public static void main(String[]args) throws IOException {
+public static void main(String[]args) throws IOException, UnsupportedAudioFileException, LineUnavailableException {
     //music();
     new main(Opciones.getColor());
     }

@@ -11,8 +11,6 @@
 
  /**imports */
 import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Random;
 import java.text.DecimalFormat;
 
@@ -67,22 +65,6 @@ public class preguntas {
         String p1 = Integer.toString(primerN) +" / "+ Integer.toString(SegundoN);
         return p1;
 
-        /*
-        Double primerN1 = Double.valueOf(primerN);
-        Double SegundoN2 = Double.valueOf(SegundoN);
-        Double RespuestaC = (Double)primerN1/ (Double)SegundoN2;
-        String RespuestaNueva = new DecimalFormat("#.##").format(RespuestaC);
-        System.out.println("Pregunta:");
-        System.out.println(Double.toString(primerN)+" / " + Double.toString(SegundoN));
-        System.out.println("Ingrese su respuesta redondeado a dos decimales: ");
-        String Respuesta = scan.nextLine();
-
-        if (Respuesta.equals(RespuestaNueva)) {
-            return true;
-        } else {
-            return false;
-        }
-        */
     }
     /**
      * @return tipo

@@ -14,7 +14,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 
 /*Esta es la clase opciones, se cambia el color del fondo */
 public class Opciones {
@@ -22,12 +21,12 @@ public class Opciones {
 
 
     /*constructor */
-    public void Opciones(JPanel j, JFrame i) {
+    public void Opciones(JPanel j, JFrame i, SimpleAudioPlayer o) {
         j.removeAll();
         j.repaint();
         /**Se llaman los métodos */
         titulo(j);
-        BotonHome(j, i);
+        BotonHome(j, i, o);
         BotonRojo(j, i);
         BotonVerde(j);
         BotonRosado(j);
@@ -142,7 +141,7 @@ public class Opciones {
      * @param j
      * @param i
      */
-    public void BotonHome(JPanel j, JFrame i){
+    public void BotonHome(JPanel j, JFrame i, SimpleAudioPlayer o){
     
         JButton boton1 = new JButton("Home");
         boton1.setBounds(50, 30, 100, 40);
@@ -152,10 +151,11 @@ public class Opciones {
             @Override
             public void actionPerformed(ActionEvent e) {
                 i.setVisible(false);
+                o.stop();
                 String[] arguments = new String[] {};
                 try {
                     main.main(arguments);
-                } catch (IOException ex) {
+                } catch (Exception ex) {
                     ex.printStackTrace();
                 }
 

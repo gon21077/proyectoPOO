@@ -32,12 +32,12 @@ import javax.swing.JPanel;
 import java.net.*;
 
 
-/*Esta es la clase de archivos, aqui están los ll¡inks para tutoriales*/
+/*Esta es la clase de archivos, aqui están los links para tutoriales*/
 public class Archivos {
 
    
     /*constructor */
-    public void Archivos(JPanel j, JFrame i){
+    public void Archivos(JPanel j, JFrame i, SimpleAudioPlayer o){
 
         /**
          * Limpiar frame para evitar texto duplicado.
@@ -54,7 +54,7 @@ public class Archivos {
         hMult(j);
 
         hDiv(j);
-        BotonHome(j, i);
+        BotonHome(j, i, o);
         
         /*dar formato a la pantalla */
         j.setLayout(null);
@@ -78,15 +78,7 @@ public class Archivos {
         j.add(titulo2);
     }
 
-    /*para el link suma 
-    public void linksuma(JPanel j){
-        JLabel titulo3 = new JLabel("Video de Suma: ");
-        titulo3.setForeground(Color.WHITE);
-        titulo3.setBounds(5, 80, 500, 80);
-        titulo3.setFont(new Font("cooper black",3,13));
-        j.add(titulo3);
-    }
-    */
+    /*para el link suma */
     public void hSuma(JPanel j){
         JLabel titulo3 = new JLabel("Clickea para ver un video de Suma");
         titulo3.setForeground(Color.WHITE);
@@ -115,16 +107,7 @@ public class Archivos {
         titulo3.setFont(new Font("Verdana",Font.PLAIN,13));
         j.add(titulo3);
     }
-    
-
-    /*link resta 
-    public void linkresta(JPanel j){
-        JLabel titulo3 = new JLabel("Video de Resta: ");
-        titulo3.setBounds(5, 160, 500, 80);
-        titulo3.setFont(new Font("White",3,13));
-        j.add(titulo3);
-    }
-    */
+    /*Para link resta */
     public void hResta(JPanel j){
         JLabel titulo4 = new JLabel("Clickea para ver un video de Resta");
         titulo4.setForeground(Color.WHITE);
@@ -153,16 +136,7 @@ public class Archivos {
         titulo4.setFont(new Font("Verdana",Font.PLAIN,13));
         j.add(titulo4);
     }
-
-    /*link multiplicacion 
-    public void linkmult(JPanel j){
-        JLabel titulo3 = new JLabel("Video de Multiplicación: ");
-        titulo3.setForeground(Color.WHITE);
-        titulo3.setBounds(5, 240, 500, 80);
-        titulo3.setFont(new Font("cooper black",3,13));
-        j.add(titulo3);
-    }
-    */
+    /*Para link de Multiplicación */
     public void hMult(JPanel j){
         JLabel titulo3 = new JLabel("Clickea para ver un video de Multiplicación");
         titulo3.setForeground(Color.WHITE);
@@ -192,16 +166,7 @@ public class Archivos {
         j.add(titulo3);
     
     }
-
-    /*link division 
-    public void linkdiv(JPanel j){
-        JLabel titulo3 = new JLabel("Video de División: ");
-        titulo3.setForeground(Color.WHITE);
-        titulo3.setBounds(5, 320, 500, 80);
-        titulo3.setFont(new Font("cooper black",3,13));
-        j.add(titulo3);
-    }
-    */
+    /*Para link de División */
     public void hDiv(JPanel j){
         JLabel titulo3 = new JLabel("Clickea para ver un video de División");
         titulo3.setForeground(Color.WHITE);
@@ -231,8 +196,8 @@ public class Archivos {
         j.add(titulo3);
     
     }
-
-    public void BotonHome(JPanel j, JFrame i){
+    /*Regresa a home */
+    public void BotonHome(JPanel j, JFrame i, SimpleAudioPlayer o){
     
         JButton boton1 = new JButton("Home");
         boton1.setBounds(50, 30, 100, 40);
@@ -242,11 +207,11 @@ public class Archivos {
             @Override
             public void actionPerformed(ActionEvent e) {
                 i.setVisible(false);
+                o.stop();
                 String[] arguments = new String[] {};
                 try {
                     main.main(arguments);
-                } catch (IOException e1) {
-                    // TODO Auto-generated catch block
+                } catch (Exception e1) {
                     e1.printStackTrace();
                 }
                 
@@ -254,23 +219,6 @@ public class Archivos {
         };
         boton1.addActionListener(clickHome);
     }
-
-    public void jLabelSuma(java.awt.event.MouseEvent evt){
-        
-
-        /**
-         * try {
-            if (Desktop.isDesktopSupported()){
-                Desktop desktop = Desktop.getDesktop();
-                if (desktop.isDesktopSupported(Desktop.Action.BROWSE)){
-                    desktop.browse(new URI("https://www.youtube.com/watch?v=oF-rZLIShC8"));
-                }
-            }
-        }
-        */
-    }
-
-    
 }
 
 

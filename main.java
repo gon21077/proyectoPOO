@@ -132,6 +132,7 @@ public class main  {
                 }
                 try {
                     marco.setVisible(false);
+                    audioPlayer.stop();
                     new main(Opciones.getColor());
                 } catch (Exception ex) {
                     ex.printStackTrace();
